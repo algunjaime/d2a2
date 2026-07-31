@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+
+const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+const css = html.match(/<style>([\s\S]*?)<\/style>/)?.[1] || '';
+
+assert.match(html, /viewport-fit=cover/, 'Falta soporte para las áreas seguras de dispositivos móviles.');
+assert.match(html, /class="header-session-actions"/, 'Las acciones contextuales no están agrupadas en el encabezado.');
+assert.match(html, /class="rail-list"/, 'La agenda no tiene el contenedor responsive esperado.');
+assert.match(html, /class="stage-nav-actions"/, 'Las acciones finales del bloque no tienen agrupación responsive.');
+assert.match(css, /@media\(max-width:650px\)/, 'Falta el punto de adaptación móvil principal.');
+assert.match(css, /\.topbar\{grid-template-columns:minmax\(0,1fr\)/, 'El encabezado no cambia a una sola columna en móvil.');
+assert.match(css, /\.rail-list\{display:flex;[^}]*overflow-x:auto/, 'La agenda móvil no permite desplazamiento horizontal.');
+assert.match(css, /\.btn\{min-height:44px\}/, 'Los botones móviles no conservan un objetivo táctil suficiente.');
+assert.match(css, /input::placeholder\{color:#C7D3E5;opacity:1\}/, 'El placeholder de los campos oscuros perdió su contraste.');
+assert.match(css, /select option,select optgroup\{\s*background:var\(--paper\);\s*color:var\(--ink\)/, 'Las opciones nativas no tienen colores explícitos de alto contraste.');
+
+console.log('OK: estructura responsive, controles táctiles y reglas críticas de contraste verificadas.');

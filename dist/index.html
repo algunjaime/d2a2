@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>D'2A2</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2NCA2NCc+PHJlY3Qgd2lkdGg9JzY0JyBoZWlnaHQ9JzY0JyByeD0nMTYnIGZpbGw9JyM1QkMwQkUnLz48ZyB0cmFuc2Zvcm09J3RyYW5zbGF0ZSg4IDgpJyBmaWxsPSdub25lJyBzdHJva2U9JyMwQjEzMkInIHN0cm9rZS13aWR0aD0nNi41JyBzdHJva2UtbGluZWNhcD0nc3F1YXJlJyBzdHJva2UtbGluZWpvaW49J21pdGVyJz48cGF0aCBkPSdNNiA3SDIwVjE4TDcgMzFWNDFIMjBWMzAnLz48cGF0aCBkPSdNMjggN0g0MlYxOEwyOSAzMVY0MUg0MlYzMCcvPjwvZz48L3N2Zz4=">
 <meta name="theme-color" content="#0B132B">
@@ -32,16 +32,17 @@
     background:var(--ink);
     color:#fff;
     font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    -webkit-text-size-adjust:100%;
   }
-  button,input,textarea,select{font:inherit}
+  button,input,textarea,select{font:inherit;min-width:0}
   button{cursor:pointer}
   button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible{
     outline:3px solid var(--mint);
     outline-offset:2px;
   }
-  .app{max-width:1180px;margin:0 auto;padding:26px 20px 60px}
+  .app{max-width:1180px;margin:0 auto;padding:26px max(20px,env(safe-area-inset-right)) max(60px,env(safe-area-inset-bottom)) max(20px,env(safe-area-inset-left))}
   .topbar{
-    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;justify-content:space-between;gap:22px;
     padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid rgba(255,255,255,.1)
   }
   .brand{display:flex;align-items:center;gap:12px;min-width:0}
@@ -57,10 +58,11 @@
   .brand h1{
     margin:0;font-size:38px;font-weight:900;line-height:1;letter-spacing:-1.5px;
     background:linear-gradient(90deg,var(--mint),var(--teal));
-    -webkit-background-clip:text;background-clip:text;color:transparent
+    -webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap
   }
   .eyebrow{margin:0 0 4px;color:var(--muted-light);font-size:10px;text-transform:uppercase;letter-spacing:1.8px}
-  .top-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+  .top-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end;min-width:0}
+  .header-session-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end;min-width:0}
   .save-state{font-size:12px;color:var(--muted-light);min-width:92px;text-align:right}
   .btn{
     border:0;border-radius:9px;padding:10px 15px;font-weight:700;font-size:13px;
@@ -132,14 +134,17 @@
   .meta{
     display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;margin-bottom:14px
   }
+  .meta-field{min-width:0}
   .meta-field label{
-    display:block;font-size:9px;text-transform:uppercase;letter-spacing:1.2px;
+    display:block;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;
     color:var(--muted-light);margin-bottom:4px
   }
   .meta-field input,.meta-field select{
-    width:100%;background:var(--ink-soft);color:#fff;border:1px solid rgba(255,255,255,.14);
-    border-radius:8px;padding:9px 10px;font-size:13px
+    width:100%;max-width:100%;background:var(--ink-soft);color:#fff;border:1px solid rgba(199,211,229,.34);
+    border-radius:8px;padding:10px 11px;font-size:14px;color-scheme:dark
   }
+  .meta-field input::placeholder{color:#C7D3E5;opacity:1}
+  .meta-field input::-webkit-calendar-picker-indicator{filter:invert(1);opacity:.9}
   select option,select optgroup{
     background:var(--paper);
     color:var(--ink);
@@ -147,12 +152,13 @@
   select option:disabled{color:var(--muted)}
   .progress-line{height:7px;border-radius:9px;background:var(--ink-soft);overflow:hidden}
   .progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--mint));transition:width .3s}
-  .progress-meta{display:flex;justify-content:space-between;margin:6px 0 18px;color:var(--muted-light);font-size:11px}
+  .progress-meta{display:flex;justify-content:space-between;gap:14px;margin:7px 0 18px;color:var(--muted-light);font-size:12px;line-height:1.4}
   .workspace{display:grid;grid-template-columns:250px 1fr;gap:20px}
   .rail{
     background:var(--ink-soft);border-radius:var(--radius);padding:12px;
     border:1px solid rgba(255,255,255,.07);height:fit-content;position:sticky;top:16px
   }
+  .rail-list{display:grid;gap:3px}
   .rail-title{
     display:flex;justify-content:space-between;align-items:center;padding:5px 7px 10px;
     color:var(--muted-light);font-size:10px;text-transform:uppercase;letter-spacing:1.3px
@@ -163,15 +169,15 @@
   }
   .track:hover{background:rgba(255,255,255,.05)}
   .track.active{background:var(--slate)}
-  .track-num{font-size:10px;color:var(--muted-light);width:18px}
+  .track-num{font-size:11px;color:var(--muted-light);width:18px}
   .track-main{flex:1;min-width:0}
-  .track-name{font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .track-time{font-size:9px;color:var(--muted-light);margin-top:2px}
+  .track-name{display:block;font-size:13px;font-weight:750;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .track-time{display:block;font-size:10.5px;color:var(--muted-light);margin-top:3px;line-height:1.35}
   .track-state{font-size:12px}
   .rail-tools{display:grid;gap:7px;margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.09)}
   .stage{
     background:var(--paper);color:var(--ink);border-radius:var(--radius);
-    min-height:540px;padding:28px 30px;box-shadow:var(--shadow)
+    min-width:0;min-height:540px;padding:28px 30px;box-shadow:var(--shadow)
   }
   .stage-title{display:flex;justify-content:space-between;gap:16px;align-items:start}
   .stage h2{font-size:27px;line-height:1.1;margin:0 0 5px}
@@ -184,10 +190,10 @@
   }
   .clock{font-size:24px;font-variant-numeric:tabular-nums;color:var(--mint);font-weight:800}
   .clock.warning{color:#FFD479}.clock.done{color:#FF96A9}
-  .timer-sub{font-size:9px;color:var(--muted-light);text-transform:uppercase;letter-spacing:.8px}
+  .timer-sub{font-size:10px;color:var(--muted-light);text-transform:uppercase;letter-spacing:.8px}
   .timer-track{height:5px;border-radius:8px;background:rgba(255,255,255,.14);overflow:hidden}
   .timer-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--mint))}
-  .timer-info{display:flex;justify-content:space-between;color:var(--muted-light);font-size:9px;margin-top:5px}
+  .timer-info{display:flex;justify-content:space-between;gap:12px;color:var(--muted-light);font-size:10.5px;margin-top:6px}
   .timer-buttons{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
   .timer-buttons .btn{padding:7px 9px}
   .field{margin-bottom:18px}
@@ -201,12 +207,14 @@
   .voice-field-button:hover{background:#E7FFFA;border-color:var(--teal)}
   .voice-field-button.recording{background:#FFE8EC;border-color:#E67B8D;color:#8B2437}
   .field>label,.field-label{display:block;font-size:12.5px;font-weight:750;margin-bottom:6px;color:#24344D}
-  .sub{display:block;font-size:11px;color:#738297;font-weight:400;margin-top:2px;line-height:1.4}
+  .sub{display:block;font-size:11.5px;color:#5F7085;font-weight:450;margin-top:2px;line-height:1.45}
   .field input[type=text],.field input[type=date],.field input[type=number],.field textarea,.field select,
   .agenda-row input,.agenda-add input{
-    width:100%;border:1.5px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);
+    width:100%;max-width:100%;border:1.5px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);
     padding:10px 11px;font-size:13.5px
   }
+  .field input::placeholder,.field textarea::placeholder,.agenda-row input::placeholder,.agenda-add input::placeholder,
+  .parking-form input::placeholder,.quick-capture-row input::placeholder,.search::placeholder{color:#5B6D82;opacity:1}
   .field textarea{min-height:78px;resize:vertical;line-height:1.5}
   .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(91,192,190,.15)}
   .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -285,6 +293,7 @@
     color:#644717;font-size:9.5px;font-weight:800
   }
   .stage-nav{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:24px;padding-top:18px;border-top:1px solid var(--line)}
+  .stage-nav-actions{display:flex;gap:7px;min-width:0}
   .stage-nav .btn-ghost{color:var(--slate);border-color:var(--line)}
   .counter{font-size:10px;color:var(--muted)}
   .agenda h2{margin-bottom:6px}
@@ -378,7 +387,8 @@
   .auth-message.error{color:#8B2437}.auth-message.success{color:var(--success)}
   .auth-link{border:0;background:none;color:var(--slate);text-decoration:underline;padding:4px;font-size:11.5px}
   .auth-local{margin-top:15px;padding-top:14px;border-top:1px solid var(--line);display:none}
-  .account-slot{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+  .account-slot{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0}
+  .account-identity{display:flex;align-items:center;gap:7px;min-width:0}
   .account-email{max-width:190px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11px;color:var(--muted-light)}
   .sync-state{font-size:10px;color:var(--muted-light)}.sync-state.error{color:#FFB2BF}
   .account-menu{position:relative}.account-menu summary{list-style:none}.account-menu summary::-webkit-details-marker{display:none}.account-menu .session-menu-pop{top:38px;bottom:auto}
@@ -416,31 +426,56 @@
   .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   @media(max-width:900px){
     .hero,.workspace{grid-template-columns:1fr}.rail{position:static}
-    .rail{display:grid;grid-template-columns:repeat(2,1fr);gap:4px}
-    .rail-title,.rail-tools{grid-column:1/-1}
+    .rail-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}
+    .rail-tools{grid-template-columns:repeat(2,minmax(0,1fr))}
     .meta{grid-template-columns:1fr 1fr}
-    .timer{grid-template-columns:1fr;top:8px}.timer-buttons{justify-content:flex-start}
+    .timer{top:8px}
   }
   @media(max-width:650px){
-    .app{padding:16px 12px 40px}.topbar{align-items:flex-start}.brand h1{font-size:32px}
-    .top-actions{justify-content:flex-start}.save-state{order:3;width:100%;text-align:left}
-    .hero-main,.stage{padding:20px 16px}.sessions,.template-grid,.grid-2,.grid-3,.metric-grid,.export-grid{grid-template-columns:1fr}
-    .meta{grid-template-columns:1fr}.rail{grid-template-columns:1fr}
-    .action-row{grid-template-columns:1fr 1fr}.action-row>div:first-child{grid-column:1/-1}
-    .parking-form,.agenda-add{grid-template-columns:1fr}.agenda-row{grid-template-columns:auto 1fr 70px auto auto}
+    .app{padding:16px max(12px,env(safe-area-inset-right)) max(44px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}
+    .topbar{grid-template-columns:minmax(0,1fr);align-items:stretch;gap:14px;padding-bottom:16px;margin-bottom:16px}
+    .brand{gap:10px}.brand-mark{width:48px;height:48px;border-radius:13px}.brand-mark svg{width:32px;height:32px}.brand h1{font-size:31px}
+    .top-actions{display:grid;grid-template-columns:minmax(0,1fr);width:100%;gap:10px;justify-content:stretch;padding-top:12px;border-top:1px solid rgba(255,255,255,.1)}
+    .header-session-actions{width:100%;justify-content:flex-start}.header-session-actions .save-state{order:2;margin-left:auto;min-width:0;width:auto;text-align:right}
+    .account-slot{display:grid;grid-template-columns:minmax(0,1fr) auto auto;width:100%;gap:8px;align-items:center}
+    .account-identity{display:block;min-width:0}.account-email,.sync-state{display:block}.account-email{max-width:100%;font-size:12px}.sync-state{margin-top:2px;font-size:10.5px}
+    .account-menu .session-menu-pop{position:fixed;left:12px;right:12px;top:auto;bottom:max(12px,env(safe-area-inset-bottom));min-width:0;z-index:140}
+    .btn{min-height:44px}.btn-small{min-height:40px;padding:8px 11px}.btn-icon{width:44px;height:44px}
+    .hero{margin-top:18px}.hero h2{font-size:clamp(28px,9vw,34px)}
+    .hero-main,.stage{padding:20px 16px}.stage{min-height:0}.sessions,.template-grid,.grid-2,.grid-3,.metric-grid,.export-grid{grid-template-columns:1fr}
+    .section-head{align-items:stretch;flex-direction:column}.history-tools{display:grid;width:100%}.search{width:100%;min-width:0;min-height:44px}
+    .session-card-top{flex-direction:column}.session-card-top .badge{align-self:flex-start}
+    .meta{grid-template-columns:1fr}.progress-meta{display:grid;grid-template-columns:1fr;gap:3px;margin-top:9px}.progress-meta span:last-child{text-align:left}
+    .rail{overflow:hidden;padding:10px}.rail-list{display:flex;gap:8px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;padding:2px 0 6px;scrollbar-width:thin}
+    .track{flex:0 0 min(78vw,245px);min-height:64px;margin:0;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.06);scroll-snap-align:start}
+    .rail-tools{grid-template-columns:1fr 1fr}.rail-tools .btn{white-space:normal}
+    .action-row{grid-template-columns:1fr}.action-row>div:first-child{grid-column:auto}.action-row>div[style*="grid-column"]{grid-column:auto!important}.action-row>.btn-icon{justify-self:end}
+    .parking-form,.agenda-add{grid-template-columns:1fr}.agenda-row{grid-template-columns:auto minmax(0,1fr) 68px auto auto}
     .example{grid-template-columns:1fr}.understanding{grid-template-columns:1fr}
-    .timer{top:5px;gap:8px;padding:10px 11px;margin-left:-5px;margin-right:-5px}
-    .timer-buttons .btn{padding:6px 8px;font-size:11px}
-    .voice-dock{bottom:10px;flex-wrap:wrap}.voice-dock-copy{min-width:180px}
+    .timer{grid-template-columns:minmax(0,1fr) auto;top:max(5px,env(safe-area-inset-top));gap:8px;padding:10px 11px;margin-left:-5px;margin-right:-5px}
+    .timer>div:nth-child(2){grid-column:1/-1;grid-row:2}.timer-buttons{grid-column:2;grid-row:1;justify-content:flex-end;flex-wrap:nowrap}.timer-buttons .btn{min-height:40px;padding:6px 8px;font-size:11px}.timer-info{font-size:10px}
+    .stage-title{display:block}.stage-modebar{justify-content:stretch;margin-top:0}.stage-modebar .btn{width:100%}
+    .voice-field-button{width:40px;height:40px}.voice-field textarea,.voice-field input[type=text]{padding-right:53px}
+    .voice-dock{bottom:max(10px,env(safe-area-inset-bottom));display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:9px}.voice-dock-copy{min-width:0}.voice-language{grid-column:1/-1;width:100%}.voice-dock .btn{min-height:40px}.voice-dock #voiceDiscard{grid-column:2}.voice-dock #voiceStop{grid-column:3}
     .summary-dialog{padding:17px}.summary-signals{grid-template-columns:1fr}
     .summary-actions .btn{flex:1}
     .auth-card,.setup-card{padding:20px 17px}.home-primary{align-items:flex-start;flex-direction:column}
-    .quick-capture-row,.download-options{grid-template-columns:1fr}.account-email{max-width:130px}
+    .quick-capture-row,.download-options{grid-template-columns:1fr}
     .parking-decision{grid-template-columns:1fr}.parking-decision-actions{justify-content:flex-start}
-    .stage-nav{flex-wrap:wrap}.counter{order:3;width:100%;text-align:center}
+    .parking-item{align-items:flex-start;flex-direction:column}.parking-item .btn{width:100%}
+    .stage-nav{display:grid;grid-template-columns:1fr;align-items:stretch}.counter{grid-row:1;text-align:center;font-size:11.5px}.stage-nav>.btn{width:100%}.stage-nav-actions{display:grid;grid-template-columns:1fr;width:100%}.stage-nav-actions .btn{width:100%}
+    .setup-actions{display:grid;grid-template-columns:1fr;width:100%}.setup-actions .btn{width:100%}
+    .toast{left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));max-width:none}
+  }
+  @media(max-width:390px){
+    .brand h1{font-size:29px}.rail-tools{grid-template-columns:1fr}
+    .agenda-row{grid-template-columns:auto minmax(0,1fr) 62px}.agenda-row .btn-icon{grid-row:2}.agenda-row .btn-icon:first-of-type{grid-column:2;justify-self:end}.agenda-row .btn-icon:last-of-type{grid-column:3;justify-self:end}
+  }
+  @media(max-width:350px){
+    .account-slot{grid-template-columns:minmax(0,1fr) auto}.account-slot>.btn{grid-column:2}.account-menu{grid-column:2}.account-identity{grid-row:1/3}
   }
 </style>
-  <script type="module" crossorigin src="/assets/index-DuQWo5tF.js"></script>
+  <script type="module" crossorigin src="/assets/index-C8ZEPVVg.js"></script>
 </head>
 <body class="auth-pending">
 <section id="authGate" class="auth-shell" aria-labelledby="authTitle">
@@ -829,8 +864,10 @@
           <h1>D'2A2</h1>
         </div>
         <div class="top-actions">
-          ${home?'':`<span id="saveState" class="save-state">Guardado</span><button class="btn btn-ghost btn-small" data-action="go-home">← Historial</button>`}
-          ${home?`<button class="btn btn-ghost btn-small" data-action="trigger-import">Importar respaldo</button>`:''}
+          <div class="header-session-actions">
+            ${home?'':`<button class="btn btn-ghost btn-small" data-action="go-home">← Historial</button><span id="saveState" class="save-state">Guardado</span>`}
+            ${home?`<button class="btn btn-ghost btn-small" data-action="trigger-import">Importar respaldo</button>`:''}
+          </div>
           <div id="accountSlot" class="account-slot" aria-label="Cuenta y sincronización"></div>
         </div>
       </header>${content}`;
@@ -881,6 +918,7 @@
       <section class="sessions">${cards||`<div class="empty" style="grid-column:1/-1">Todavía no hay sesiones guardadas.</div>`}</section>
       ${archivedSessions.length?`<details class="archived-list"><summary>Sesiones archivadas (${archivedSessions.length})</summary><section class="sessions" style="margin-top:10px">${archivedSessions.sort((a,b)=>new Date(b.updatedAt)-new Date(a.updatedAt)).map(s=>sessionCard(s,true)).join('')}</section></details>`:''}
     `,true);
+    window.scrollTo({top:0,behavior:'auto'});
     notifyRender();
   }
   function sessionCard(s,archived=false){
@@ -934,6 +972,7 @@
         <button class="btn btn-primary" data-action="begin-session">Comenzar conversación →</button>
       </div>
     </section>`);
+    window.scrollTo({top:0,behavior:'auto'});
     enhanceDictationFields();notifyRender();
   }
 
@@ -946,6 +985,7 @@
     if(currentStepId && session.stepStates[currentStepId]==='not_started') session.stepStates[currentStepId]='in_progress';
     localStorage.setItem(ACTIVE_KEY,session.id);
     renderSession();
+    window.scrollTo({top:0,behavior:'auto'});
     if(session.status==='draft') startTimers();
   }
   function renderSession(){
@@ -981,7 +1021,7 @@
   function renderRail(){
     return `<aside class="rail" aria-label="Agenda">
       <div class="rail-title"><span>Agenda · ${totalBudget()} min</span><span>${completedCount()}/${enabledSteps().length}</span></div>
-      ${enabledSteps().map((s,i)=>{
+      <div class="rail-list">${enabledSteps().map((s,i)=>{
         const status=session.stepStates[s.id]||'not_started';
         const icon=status==='complete'?'✓':status==='in_progress'?'●':'○';
         return `<button class="track ${s.id===currentStepId?'active':''}" data-action="navigate-step" data-step="${s.id}">
@@ -989,7 +1029,7 @@
           <span class="track-main"><span class="track-name">${s.icon} ${esc(s.title)}</span><span class="track-time">${s.min} min · ${status==='complete'?'Completo':status==='in_progress'?'En progreso':status==='pending'?'Pendiente':'No iniciado'}</span></span>
           <span class="track-state" aria-hidden="true">${icon}</span>
         </button>`;
-      }).join('')}
+      }).join('')}</div>
       <div class="rail-tools">
         <button class="btn btn-ghost btn-small" data-action="open-agenda">⚙ Configurar agenda</button>
         <button class="btn btn-ghost btn-small" data-action="export-session-current">Descargar respaldo</button>
@@ -1014,7 +1054,7 @@
       <nav class="stage-nav" aria-label="Navegación de la sesión">
         <button class="btn btn-ghost" data-action="previous-step" ${index<=0?'disabled':''}>← Anterior</button>
         <span class="counter">Bloque ${index+1} de ${steps.length}</span>
-        <div style="display:flex;gap:7px">
+        <div class="stage-nav-actions">
           <button class="btn btn-paper" data-action="mark-pending">Dejar pendiente</button>
           <button class="btn btn-primary" data-action="complete-step">${index===steps.length-1?'Terminar bloque':'Finalizar y seguir →'}</button>
         </div>
@@ -1434,6 +1474,7 @@
     const nextStep=steps[i+1];
     if(nextStep){currentStepId=nextStep.id;if(session.stepStates[currentStepId]==='not_started')session.stepStates[currentStepId]='in_progress';}
     renderSession();
+    window.scrollTo({top:0,behavior:'smooth'});
     focusCurrentHeading();
     if(nextStep) startTimers();
   }
@@ -2137,8 +2178,8 @@
     else if(action==='parking-talk-now') decideParking(button.dataset.id,'now');
     else if(action==='parking-postpone') decideParking(button.dataset.id,'postponed');
     else if(action==='parking-resolve') decideParking(button.dataset.id,'resolved');
-    else if(action==='open-agenda'){pauseTimers();agendaOpen=true;renderSession();}
-    else if(action==='close-agenda'){agendaOpen=false;renderSession();startTimers();}
+    else if(action==='open-agenda'){pauseTimers();agendaOpen=true;renderSession();window.scrollTo({top:0,behavior:'smooth'});}
+    else if(action==='close-agenda'){agendaOpen=false;renderSession();window.scrollTo({top:0,behavior:'smooth'});startTimers();}
     else if(action==='agenda-up') moveAgenda(Number(button.dataset.index),-1);
     else if(action==='agenda-down') moveAgenda(Number(button.dataset.index),1);
     else if(action==='agenda-add') addAgendaStep();

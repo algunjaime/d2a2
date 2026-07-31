@@ -35,6 +35,7 @@ Al cerrar sesión, la caché local visible de esa cuenta se limpia. Los datos pr
 - Registro, inicio y cierre de sesión, confirmación por correo y recuperación de contraseña.
 - Sesiones privadas por usuario con sincronización y detección de cambios simultáneos.
 - Preparación previa de la sesión antes de iniciar el cronómetro.
+- Diseño responsive probado desde 320 px, con encabezado reorganizado, controles táctiles y agenda móvil desplazable.
 - Modo conversación enfocado, con un bloque y una pregunta principal a la vez.
 - Cronómetro flotante, inicio automático por paso, pausa, reinicio y `+2 min`.
 - Dictado continuo español/inglés, transcripción completa y resumen local sin IA.

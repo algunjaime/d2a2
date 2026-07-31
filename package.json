@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "node tests/test-app.mjs && node tests/test-dictation.mjs"
+    "test": "node tests/test-app.mjs && node tests/test-dictation.mjs && node tests/test-responsive.mjs"
   },
   "dependencies": {
     "@netlify/database": "^1.1.0",

@@ -202,7 +202,10 @@ function renderAccount() {
   status.className = 'sync-state';
   status.dataset.syncState = '';
   status.textContent = window.D2A2Cloud.active ? 'Sincronizado' : 'Solo en este dispositivo';
-  slot.append(email, status);
+  const identity = document.createElement('span');
+  identity.className = 'account-identity';
+  identity.append(email, status);
+  slot.append(identity);
   if (currentUser) {
     const details = document.createElement('details');
     details.className = 'account-menu session-menu';

@@ -245,6 +245,24 @@
   .choice:hover{border-color:var(--teal)}
   .choice.selected{border-color:var(--teal);background:#E7FFFA;color:var(--ink);box-shadow:0 0 0 2px rgba(91,192,190,.1)}
   .choice-emoji{font-size:20px}
+  .action-cards{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(126px,1fr));gap:10px;align-items:stretch
+  }
+  .action-choice{
+    position:relative;aspect-ratio:5/6;min-height:156px;border:1.5px solid var(--line);border-radius:15px;
+    padding:15px 14px;background:linear-gradient(155deg,#FFFFFF 0%,#F4FAFB 100%);color:var(--ink);
+    display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:16px;text-align:left;
+    box-shadow:0 7px 18px rgba(11,19,43,.06);transition:transform .16s,border-color .16s,box-shadow .16s,background .16s
+  }
+  .action-choice:hover{transform:translateY(-2px);border-color:var(--teal);box-shadow:0 12px 25px rgba(11,19,43,.11)}
+  .action-choice-label{max-width:100%;padding-right:28px;font-size:10px;line-height:1.25;font-weight:850;letter-spacing:1px;text-transform:uppercase;color:#5F7085;overflow-wrap:anywhere}
+  .action-choice-message{font-size:18px;line-height:1.14;font-weight:900;letter-spacing:-.25px;color:var(--ink);overflow-wrap:anywhere}
+  .action-choice-check{
+    position:absolute;right:11px;top:11px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;
+    border:1.5px solid #B9CBD1;background:#fff;color:transparent;font-size:12px;font-weight:900
+  }
+  .action-choice.selected{border-color:var(--teal);background:linear-gradient(145deg,#DFFFF8 0%,#A7EEE5 100%);box-shadow:0 0 0 3px rgba(91,192,190,.16),0 12px 25px rgba(11,19,43,.1)}
+  .action-choice.selected .action-choice-label{color:#355B66}.action-choice.selected .action-choice-check{background:var(--ink);border-color:var(--ink);color:var(--mint)}
   .item-card{
     border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:13px;background:#FCFEFF
   }
@@ -458,6 +476,7 @@
     .action-row{grid-template-columns:1fr}.action-row>div:first-child{grid-column:auto}.action-row>div[style*="grid-column"]{grid-column:auto!important}.action-row>.btn-icon{justify-self:end}
     .parking-form,.agenda-add{grid-template-columns:1fr}.agenda-row{grid-template-columns:auto minmax(0,1fr) 68px auto auto}
     .example{grid-template-columns:1fr}.understanding{grid-template-columns:1fr}
+    .action-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.action-choice{min-height:150px;padding:14px 13px}.action-choice-message{font-size:17px}
     .timer{grid-template-columns:minmax(0,1fr) auto;top:max(5px,env(safe-area-inset-top));gap:8px;padding:10px 11px;margin-left:-5px;margin-right:-5px}
     .timer>div:nth-child(2){grid-column:1/-1;grid-row:2}.timer-buttons{grid-column:2;grid-row:1;justify-content:flex-end;flex-wrap:nowrap}.timer-buttons .btn{min-height:40px;padding:6px 8px;font-size:11px}.timer-info{font-size:10px}
     .stage-title{display:block}.stage-modebar{justify-content:stretch;margin-top:0}.stage-modebar .btn{width:100%}
@@ -602,7 +621,21 @@
     {v:'confundido',e:'😵‍💫',l:'Confundido'},
     {v:'esperanzado',e:'🌱',l:'Esperanzado'}
   ];
-  const ACTION_CARDS = ['Continuar','Empezar','Detener','Pedir','Escuchar','Aclarar','Delegar','Priorizar','Reconocer','Acompañar','Reparar','Experimentar'];
+  const ACTION_CARDS = [
+    {value:'Continuar',message:'¡Sigamos así!'},
+    {value:'Empezar',message:"Let's Go!"},
+    {value:'Detener',message:'No más de esto'},
+    {value:'Pedir',message:'Help me!'},
+    {value:'Escuchar',message:'Párame Bolas'},
+    {value:'Aclarar',message:'Quiero Entender'},
+    {value:'Delegar',message:'Voy a Soltar'},
+    {value:'Priorizar',message:'Esto es Urgente'},
+    {value:'Reconocer',message:'Lo Acepto'},
+    {value:'Acompañar',message:'¡Apóyame!'},
+    {value:'Reparar',message:'Solucionemos'},
+    {value:'Experimentar',message:'¡Probemos!'},
+    {value:'Confiar',message:'¡Yo Puedo!'}
+  ];
   const FEEDBACK_AREAS = ['Claridad','Disponibilidad','Autonomía','Reconocimiento','Priorización','Comunicación','Manejo de conflictos','Acompañamiento profesional'];
   const UNDERSTANDING = [
     ['acordado','Entendido y acordado'],
@@ -1148,7 +1181,14 @@
   }
   function renderActionCards(){
     const selected=session.checkin.actionCards||[];
-    return `<div class="cards">${ACTION_CARDS.map(value=>`<button type="button" class="choice ${selected.includes(value)?'selected':''}" data-action="toggle-choice" data-path="checkin.actionCards" data-value="${value}" aria-pressed="${selected.includes(value)}">${value}</button>`).join('')}</div>`;
+    return `<div class="action-cards">${ACTION_CARDS.map(card=>{
+      const isSelected=selected.includes(card.value);
+      return `<button type="button" class="action-choice ${isSelected?'selected':''}" data-action="toggle-choice" data-path="checkin.actionCards" data-value="${esc(card.value)}" aria-label="${esc(`${card.value}: ${card.message}`)}" aria-pressed="${isSelected}">
+        <span class="action-choice-label">${esc(card.value)}</span>
+        <span class="action-choice-message">${esc(card.message)}</span>
+        <span class="action-choice-check" aria-hidden="true">✓</span>
+      </button>`;
+    }).join('')}</div>`;
   }
   function renderFollowup(){
     const items=session.followup.items||[];

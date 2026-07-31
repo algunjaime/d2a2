@@ -14,5 +14,8 @@ assert.match(css, /\.rail-list\{display:flex;[^}]*overflow-x:auto/, 'La agenda m
 assert.match(css, /\.btn\{min-height:44px\}/, 'Los botones móviles no conservan un objetivo táctil suficiente.');
 assert.match(css, /input::placeholder\{color:#C7D3E5;opacity:1\}/, 'El placeholder de los campos oscuros perdió su contraste.');
 assert.match(css, /select option,select optgroup\{\s*background:var\(--paper\);\s*color:var\(--ink\)/, 'Las opciones nativas no tienen colores explícitos de alto contraste.');
+assert.match(css, /\.meta-field input\[type=date\]\{[^}]*inline-size:100%[^}]*-webkit-appearance:none[^}]*text-align:left/, 'El campo de fecha no conserva un ancho y alineación compatibles con Safari móvil.');
+assert.match(css, /\.summary-actions\{display:grid;grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/, 'Las acciones del resumen no se reorganizan en dos columnas en móvil.');
+assert.match(css, /@media\(max-width:350px\)[\s\S]*\.summary-actions\{grid-template-columns:1fr\}/, 'Las acciones del resumen no se apilan en móviles estrechos.');
 
 console.log('OK: estructura responsive, controles táctiles y reglas críticas de contraste verificadas.');

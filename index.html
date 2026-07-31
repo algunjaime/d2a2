@@ -143,6 +143,12 @@
     width:100%;max-width:100%;background:var(--ink-soft);color:#fff;border:1px solid rgba(199,211,229,.34);
     border-radius:8px;padding:10px 11px;font-size:14px;color-scheme:dark
   }
+  .meta-field input[type=date]{
+    display:block;width:100%;inline-size:100%;min-width:0;min-inline-size:0;max-width:100%;max-inline-size:100%;
+    -webkit-appearance:none;appearance:none;text-align:left;text-align-last:left
+  }
+  .meta-field input[type=date]::-webkit-date-and-time-value{text-align:left;margin:0}
+  .meta-field input[type=date]::-webkit-datetime-edit{display:flex;justify-content:flex-start;padding:0}
   .meta-field input::placeholder{color:#C7D3E5;opacity:1}
   .meta-field input::-webkit-calendar-picker-indicator{filter:invert(1);opacity:.9}
   select option,select optgroup{
@@ -458,7 +464,9 @@
     .voice-field-button{width:40px;height:40px}.voice-field textarea,.voice-field input[type=text]{padding-right:53px}
     .voice-dock{bottom:max(10px,env(safe-area-inset-bottom));display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:9px}.voice-dock-copy{min-width:0}.voice-language{grid-column:1/-1;width:100%}.voice-dock .btn{min-height:40px}.voice-dock #voiceDiscard{grid-column:2}.voice-dock #voiceStop{grid-column:3}
     .summary-dialog{padding:17px}.summary-signals{grid-template-columns:1fr}
-    .summary-actions .btn{flex:1}
+    .summary-editor label{align-items:flex-start;flex-wrap:wrap}.summary-editor label .btn{margin-left:auto}
+    .summary-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+    .summary-actions .btn{width:100%;min-width:0;min-height:52px;white-space:normal;overflow-wrap:anywhere}
     .auth-card,.setup-card{padding:20px 17px}.home-primary{align-items:flex-start;flex-direction:column}
     .quick-capture-row,.download-options{grid-template-columns:1fr}
     .parking-decision{grid-template-columns:1fr}.parking-decision-actions{justify-content:flex-start}
@@ -473,6 +481,7 @@
   }
   @media(max-width:350px){
     .account-slot{grid-template-columns:minmax(0,1fr) auto}.account-slot>.btn{grid-column:2}.account-menu{grid-column:2}.account-identity{grid-row:1/3}
+    .summary-actions{grid-template-columns:1fr}
   }
 </style>
 </head>

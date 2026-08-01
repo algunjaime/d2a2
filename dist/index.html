@@ -388,28 +388,37 @@
   .summary-signal strong{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--slate);margin-bottom:4px}
   .summary-signal span{display:block;font-size:11.5px;line-height:1.45;color:#42536A}
   .summary-actions{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin-top:17px}
-  body.auth-pending #app,body.auth-locked #app{visibility:hidden}
+  body.auth-pending #app,body.auth-locked #app{display:none}
   .auth-shell{
-    min-height:100vh;display:none;align-items:center;justify-content:center;padding:24px;
+    min-height:100vh;min-height:100dvh;display:none;align-items:center;justify-content:center;
+    padding:clamp(12px,3vh,24px);overflow:auto;
     background:
       radial-gradient(circle at 18% 18%,rgba(91,192,190,.18),transparent 34%),
       radial-gradient(circle at 82% 78%,rgba(111,255,233,.12),transparent 32%),var(--ink)
   }
   body.auth-pending .auth-shell,body.auth-locked .auth-shell{display:flex}
   .auth-card{width:min(430px,100%);background:var(--paper);color:var(--ink);border-radius:20px;padding:28px;box-shadow:var(--shadow)}
-  .auth-brand{display:flex;align-items:center;gap:12px;margin-bottom:22px}
-  .auth-brand .brand-mark{color:var(--ink)}
-  .auth-brand strong{display:block;font-size:28px;line-height:1}.auth-brand span{font-size:12px;color:var(--muted)}
-  .auth-card h2{margin:0 0 7px;font-size:25px}.auth-card>p{margin:0 0 20px;color:var(--muted);font-size:13px;line-height:1.55}
+  .auth-brand{display:grid;justify-items:center;gap:9px;text-align:center;margin-bottom:18px}
+  .auth-brand-lockup{display:grid;grid-template-columns:58px 1px auto;align-items:center;justify-content:center;gap:14px;text-align:left}
+  .auth-brand .brand-mark{width:58px;height:58px;display:grid;place-items:center;color:var(--ink);margin:0}
+  .auth-brand .brand-mark svg{width:40px;height:40px;display:block}
+  .auth-brand-divider{width:1px;height:50px;background:var(--ink)}
+  .auth-tagline{display:block;font:700 18px/1.12 Georgia,"Times New Roman",serif;color:var(--ink);text-align:left}
+  .auth-tagline span{display:block}
+  .auth-flow-title[hidden]{display:none}
+  .auth-card h2{margin:0 0 7px;font-size:24px}
+  .auth-intro{max-width:350px;margin:0 auto 22px;text-align:center;color:var(--muted);font-size:14px;line-height:1.55}
+  .auth-intro strong{font-weight:800;color:var(--ink)}
   .auth-tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:4px;background:#EEF3F6;border-radius:10px;margin-bottom:17px}
-  .auth-tab{border:0;border-radius:7px;padding:8px;background:transparent;color:var(--slate);font-weight:800}
+  .auth-tab{border:0;border-radius:7px;padding:9px 8px;background:transparent;color:var(--slate);font-size:14px;font-weight:800}
   .auth-tab.active{background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(11,19,43,.08)}
   .auth-form{display:grid;gap:12px}.auth-form.hidden{display:none!important}
-  .auth-field label{display:block;font-size:11px;font-weight:800;color:var(--slate);margin-bottom:5px}
-  .auth-field input{width:100%;border:1.5px solid var(--line);border-radius:9px;padding:11px;color:var(--ink);background:#fff}
-  .auth-message{min-height:18px;margin:8px 0 0;font-size:11.5px;line-height:1.45;color:var(--muted)}
+  .auth-field label{display:block;font-size:12px;font-weight:800;color:var(--slate);margin-bottom:6px}
+  .auth-field input{width:100%;border:1.5px solid var(--line);border-radius:9px;padding:11px;font-size:15px;color:var(--ink);background:#fff}
+  .auth-form>.btn{font-size:14px}
+  .auth-message{min-height:18px;margin:9px 0 0;font-size:12px;line-height:1.45;color:var(--muted)}
   .auth-message.error{color:#8B2437}.auth-message.success{color:var(--success)}
-  .auth-link{border:0;background:none;color:var(--slate);text-decoration:underline;padding:4px;font-size:11.5px}
+  .auth-link{border:0;background:none;color:var(--slate);text-decoration:underline;padding:4px;font-size:12.5px}
   .account-slot{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0}
   .account-identity{display:flex;align-items:center;gap:7px;min-width:0}
   .account-email{max-width:190px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11px;color:var(--muted-light)}
@@ -767,19 +776,22 @@
     .voice-field-button{width:40px;height:40px;min-width:40px;min-height:40px}
   }
 </style>
-  <script type="module" crossorigin src="/assets/index-qIIhYdHC.js"></script>
+  <script type="module" crossorigin src="/assets/index-BZ_Ws50z.js"></script>
 </head>
 <body class="auth-pending">
-<section id="authGate" class="auth-shell" aria-labelledby="authTitle">
+<section id="authGate" class="auth-shell" aria-label="Acceso a D'2A2">
   <div class="auth-card">
     <div class="auth-brand">
-      <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 7H20V18L7 31V41H20V30" stroke="currentColor" stroke-width="6.5"/><path d="M28 7H42V18L29 31V41H42V30" stroke="currentColor" stroke-width="6.5"/></svg>
-      </span>
-      <div><strong>D'2A2</strong><span>Conversaciones privadas que se convierten en acciones</span></div>
+      <div class="auth-brand-lockup">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 7H20V18L7 31V41H20V30" stroke="currentColor" stroke-width="6.5"/><path d="M28 7H42V18L29 31V41H42V30" stroke="currentColor" stroke-width="6.5"/></svg>
+        </span>
+        <span class="auth-brand-divider" aria-hidden="true"></span>
+        <span class="auth-tagline"><span>Conversaciones</span><span>de tú a tú</span><span>y en confianza.</span></span>
+      </div>
     </div>
-    <h2 id="authTitle">Tus sesiones, solo para ti</h2>
-    <p>Inicia sesión para guardar, sincronizar y recuperar tus conversaciones de manera privada.</p>
+    <h2 id="authTitle" class="auth-flow-title" hidden></h2>
+    <p class="auth-intro">Inicia sesión para guardar, sincronizar y recuperar tus conversaciones de <strong>manera privada.</strong></p>
     <div id="authStandard">
       <div class="auth-tabs" role="tablist" aria-label="Acceso a D'2A2">
         <button class="auth-tab active" type="button" role="tab" aria-selected="true" data-auth-tab="login">Ingresar</button>

@@ -158,7 +158,9 @@ function showPasswordFlow(result) {
   passwordFlow = result;
   authStandard.classList.add('hidden');
   passwordForm.classList.remove('hidden');
-  document.getElementById('authTitle').textContent = result.type === 'invite' ? 'Crea tu contraseña' : 'Cambia tu contraseña';
+  const authTitle = document.getElementById('authTitle');
+  authTitle.hidden = false;
+  authTitle.textContent = result.type === 'invite' ? 'Crea tu contraseña' : 'Cambia tu contraseña';
   setAuthMessage(result.type === 'invite' ? 'Completa la invitación para entrar a D’2A2.' : 'Elige una nueva contraseña para tu cuenta.');
   document.getElementById('newPassword').focus();
 }
@@ -347,7 +349,9 @@ async function signOut() {
   body.classList.add('auth-locked');
   authStandard.classList.remove('hidden');
   passwordForm.classList.add('hidden');
-  document.getElementById('authTitle').textContent = 'Tus sesiones, solo para ti';
+  const authTitle = document.getElementById('authTitle');
+  authTitle.textContent = '';
+  authTitle.hidden = true;
   loginForm.reset();
   setAuthMessage('Sesión cerrada correctamente.', 'success');
   renderAccount();

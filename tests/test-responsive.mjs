@@ -87,6 +87,13 @@ assert.match(css, /select option,select optgroup\{\s*background:var\(--paper\);\
 assert.match(css, /\.meta-field input\[type=date\]\{[^}]*inline-size:100%[^}]*-webkit-appearance:none[^}]*text-align:left/, 'El campo de fecha no conserva un ancho y alineación compatibles con Safari móvil.');
 assert.match(css, /\.summary-actions\{display:grid;grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/, 'Las acciones del resumen no se reorganizan en dos columnas en móvil.');
 assert.match(css, /@media\(max-width:350px\)[\s\S]*\.summary-actions\{grid-template-columns:1fr\}/, 'Las acciones del resumen no se apilan en móviles estrechos.');
+assert.match(css, /#app input:not\(\[type=checkbox\]\):not\(\[type=radio\]\):not\(\[type=file\]\)[\s\S]*font-size:16px;line-height:1\.35/, 'Los controles móviles todavía permiten el zoom automático de Safari.');
+assert.match(css, /details\.session-menu \.session-menu-pop,details\.account-menu \.session-menu-pop\{[\s\S]*position:fixed;left:max\(12px,env\(safe-area-inset-left\)\)[\s\S]*max-height:min\(62dvh,460px\)/, 'Los menús contextuales no se mantienen dentro de la pantalla móvil.');
+assert.match(css, /body\.mobile-form-focus \.topbar,body\.mobile-form-focus \.timer\{position:relative;top:auto\}/, 'El encabezado y el temporizador continúan interfiriendo con el teclado móvil.');
+assert.match(css, /@media\(max-width:520px\)[\s\S]*\.agenda-row\{[\s\S]*grid-template-areas:"toggle title minutes" "\. up down"/, 'La agenda no adopta una retícula segura en iPhone de 393 a 430 px.');
+assert.match(html, /function enhanceMobileFormControls\(\)[\s\S]*setAttribute\('inputmode','numeric'\)[\s\S]*setAttribute\('enterkeyhint','done'\)/, 'Los campos dinámicos no reciben semántica apropiada para el teclado móvil.');
+assert.match(html, /function syncMobileViewport\(\)[\s\S]*window\.visualViewport[\s\S]*--mobile-visual-height/, 'La aplicación no responde a la altura visible cuando aparece el teclado.');
+assert.match(html, /document\.addEventListener\('focusin'[\s\S]*mobile-form-focus[\s\S]*scheduleMobileControlReveal/, 'Los campos enfocados no activan el modo de escritura móvil.');
 assert.match(css, /\.action-cards\{\s*display:grid;grid-template-columns:repeat\(5,minmax\(0,1fr\)\);grid-auto-rows:146px/, 'Las tarjetas de acción no conservan una cuadrícula uniforme en escritorio.');
 assert.match(css, /@media\(max-width:900px\)[\s\S]*\.action-cards\{grid-template-columns:repeat\(4,minmax\(0,1fr\)\);grid-auto-rows:142px\}/, 'Las tarjetas de acción no se adaptan correctamente a pantallas medianas.');
 assert.match(css, /@media\(max-width:760px\)[\s\S]*\.action-cards\{grid-template-columns:repeat\(3,minmax\(0,1fr\)\)\}/, 'Las tarjetas de acción no se adaptan correctamente a tabletas estrechas.');

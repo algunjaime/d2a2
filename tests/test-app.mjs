@@ -10,7 +10,7 @@ let appScript = inlineApp.replace(
   /\}\)\(\);\s*$/,
   `globalThis.__test={
     createSession, prepareSession, renderSetup, openSession, navigate, pauseTimers, sharedPdfContent, privatePdfContent, downloadPdf,
-    decideParking, renderParkingAlert, closingChecklist,
+    decideParking, renderParkingAlert, closingChecklist, sessionProgressPercent, templateSteps, workflowSections,
     stageHtml(){return renderStage();},
     setupHtml(){renderSetup();return app.innerHTML;},
     timerIsRunning(){return timerRunning;},
@@ -67,7 +67,28 @@ vm.runInContext(appScript,context,{filename:'app.js'});
 const preparedSession=context.__test.createSession('regular');
 context.__test.prepareSession(preparedSession);
 if(context.__test.timerIsRunning()) throw new Error('El cronómetro comenzó durante la preparación.');
-if(!context.__test.setupHtml().includes('Comenzar conversación')) throw new Error('La preparación no ofrece una acción clara para comenzar.');
+const setupMarkup=context.__test.setupHtml();
+if(!setupMarkup.includes('Comenzar conversación')) throw new Error('La preparación no ofrece una acción clara para comenzar.');
+if(setupMarkup.includes('setupPurpose')||setupMarkup.includes('Propósito de esta sesión')) throw new Error('El propósito todavía se solicita durante la preparación.');
+
+const firstSession=context.__test.createSession('primera');
+const growthSession=context.__test.createSession('crecimiento');
+const difficultSession=context.__test.createSession('dificil');
+if(!firstSession.agenda.some(step=>step.id==='primeraExpectativas')||firstSession.agenda.some(step=>step.id==='feedbackTuyo')) throw new Error('La primera sesión todavía reutiliza el flujo regular de feedback.');
+if(!growthSession.agenda.some(step=>step.id==='crecimientoExperimentos')||growthSession.agenda.some(step=>step.id==='seguimiento')) throw new Error('El flujo de crecimiento no tiene una agenda propia.');
+if(difficultSession.agenda[0]?.id!=='dificilPreparacion'||!difficultSession.agenda.some(step=>step.id==='dificilCausas')) throw new Error('La conversación difícil no sigue la secuencia especializada.');
+context.__test.setSession(difficultSession);
+const difficultMarkup=context.__test.stageHtml();
+if(!difficultMarkup.includes('¿Qué tipo de situación quieres abordar?')) throw new Error('La conversación difícil no permite identificar el tipo de situación.');
+if(!difficultMarkup.includes('Tensión o conflicto interpersonal')) throw new Error('El conflicto no está integrado como subtipo de conversación difícil.');
+difficultSession.workflow.dificilPreparacion={tipo:'conflicto',hechos:'Dos entregas llegaron después de la fecha acordada.',proposito:'Aclarar lo ocurrido.',resultado:'Acordar una forma de trabajo.'};
+difficultSession.workflow.dificilApertura={mensaje:'Quiero comprender lo ocurrido y acordar un camino.',intencion:'Resolver la situación con claridad.'};
+context.__test.setSession(difficultSession);
+const difficultShared=JSON.stringify(context.__test.sharedPdfContent());
+if(!difficultShared.includes('Quiero comprender lo ocurrido')) throw new Error('El PDF no se adapta al flujo de conversación difícil.');
+if(difficultShared.includes('Dos entregas llegaron')) throw new Error('La preparación privada se filtró al PDF compartible.');
+if(!JSON.stringify(context.__test.privatePdfContent()).includes('Tensión o conflicto interpersonal')) throw new Error('El PDF privado no conserva la preparación del líder.');
+if(context.__test.closingChecklist().some(item=>item.label.includes('feedback hacia el líder'))) throw new Error('El checklist especializado todavía exige pasos del flujo regular.');
 
 const automaticSession=context.__test.createSession('regular');
 context.__test.openSession(automaticSession);
@@ -84,6 +105,14 @@ if(context.__test.currentTimer().remaining!==pausedAt) throw new Error('La pausa
 context.__test.navigate('checkin');
 if(!context.__test.timerIsRunning()) throw new Error('El cronómetro no reinició al entrar al siguiente bloque.');
 context.__test.pauseTimers(false);
+
+const customDurationSession=context.__test.createSession('regular');
+customDurationSession.agenda.forEach(step=>{step.min=1;});
+customDurationSession.sessionElapsed=16;
+context.__test.setSession(customDurationSession);
+if(context.__test.sessionProgressPercent()!==4) throw new Error('La barra temporal no respeta la duración personalizada de la agenda.');
+customDurationSession.sessionElapsed=9999;
+if(context.__test.sessionProgressPercent()!==100) throw new Error('La barra temporal debe limitarse al 100 %.');
 
 const parkingSession=context.__test.createSession('regular');
 parkingSession.parking=[{id:'park-test',text:'Conversar sobre prioridades',destination:'final',status:'open'}];

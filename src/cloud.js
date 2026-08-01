@@ -16,10 +16,8 @@ const authStandard = document.getElementById('authStandard');
 const loginForm = document.getElementById('loginForm');
 const signupForm = document.getElementById('signupForm');
 const passwordForm = document.getElementById('passwordForm');
-const authLocal = document.getElementById('authLocal');
 const migrationModal = document.getElementById('migrationModal');
 const migrationText = document.getElementById('migrationText');
-const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:';
 
 let currentUser = null;
 let passwordFlow = null;
@@ -155,8 +153,6 @@ passwordForm.addEventListener('submit', async event => {
     setAuthBusy(passwordForm, false);
   }
 });
-
-document.querySelector('[data-auth-action="local"]').addEventListener('click', enterLocalMode);
 
 function showPasswordFlow(result) {
   passwordFlow = result;
@@ -340,14 +336,6 @@ async function enterAccount(user) {
   }
 }
 
-function enterLocalMode() {
-  currentUser = null;
-  window.D2A2Cloud.active = false;
-  body.classList.remove('auth-pending', 'auth-locked');
-  body.classList.add('authenticated');
-  renderAccount();
-}
-
 async function signOut() {
   setSyncState('Cerrando sesión…');
   await flushAll();
@@ -370,12 +358,6 @@ window.addEventListener('online', () => {
 });
 
 async function bootstrap() {
-  if (isLocal) {
-    authLocal.style.display = 'block';
-    if (new URLSearchParams(location.search).get('preview') === '1') enterLocalMode();
-    else body.classList.replace('auth-pending', 'auth-locked');
-    return;
-  }
   try {
     const callback = await handleAuthCallback();
     if (callback?.type === 'invite' && callback.token) {

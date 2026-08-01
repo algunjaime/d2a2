@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>D'2A2</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2NCA2NCc+PHJlY3Qgd2lkdGg9JzY0JyBoZWlnaHQ9JzY0JyByeD0nMTYnIGZpbGw9JyM1QkMwQkUnLz48ZyB0cmFuc2Zvcm09J3RyYW5zbGF0ZSg4IDgpJyBmaWxsPSdub25lJyBzdHJva2U9JyMwQjEzMkInIHN0cm9rZS13aWR0aD0nNi41JyBzdHJva2UtbGluZWNhcD0nc3F1YXJlJyBzdHJva2UtbGluZWpvaW49J21pdGVyJz48cGF0aCBkPSdNNiA3SDIwVjE4TDcgMzFWNDFIMjBWMzAnLz48cGF0aCBkPSdNMjggN0g0MlYxOEwyOSAzMVY0MUg0MlYzMCcvPjwvZz48L3N2Zz4=">
-<meta name="theme-color" content="#0B132B">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2NCA2NCc+PHJlY3Qgd2lkdGg9JzY0JyBoZWlnaHQ9JzY0JyByeD0nOCcgZmlsbD0nI0Q5RUQ5MicvPjxnIHRyYW5zZm9ybT0ndHJhbnNsYXRlKDggOCknIGZpbGw9J25vbmUnIHN0cm9rZT0nIzBEMTQxMScgc3Ryb2tlLXdpZHRoPSc2LjUnIHN0cm9rZS1saW5lY2FwPSdzcXVhcmUnIHN0cm9rZS1saW5lam9pbj0nbWl0ZXInPjxwYXRoIGQ9J002IDdIMjBWMThMNyAzMVY0MUgyMFYzMCcvPjxwYXRoIGQ9J00yOCA3SDQyVjE4TDI5IDMxVjQxSDQyVjMwJy8+PC9nPjwvc3ZnPg==">
+<meta name="theme-color" content="#ECECEA">
 <style>
   :root{
     --ink:#0B132B;
@@ -246,17 +246,17 @@
   .choice.selected{border-color:var(--teal);background:#E7FFFA;color:var(--ink);box-shadow:0 0 0 2px rgba(91,192,190,.1)}
   .choice-emoji{font-size:20px}
   .action-cards{
-    display:grid;grid-template-columns:repeat(auto-fill,minmax(126px,1fr));gap:10px;align-items:stretch
+    display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-rows:146px;gap:10px;align-items:stretch
   }
   .action-choice{
-    position:relative;aspect-ratio:5/6;min-height:156px;border:1.5px solid var(--line);border-radius:15px;
-    padding:15px 14px;background:linear-gradient(155deg,#FFFFFF 0%,#F4FAFB 100%);color:var(--ink);
-    display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:16px;text-align:left;
+    position:relative;width:100%;height:100%;min-width:0;border:1.5px solid var(--line);border-radius:15px;
+    padding:14px 13px;background:linear-gradient(155deg,#FFFFFF 0%,#F4FAFB 100%);color:var(--ink);
+    display:flex;flex-direction:column;align-items:flex-start;gap:14px;text-align:left;overflow:hidden;
     box-shadow:0 7px 18px rgba(11,19,43,.06);transition:transform .16s,border-color .16s,box-shadow .16s,background .16s
   }
   .action-choice:hover{transform:translateY(-2px);border-color:var(--teal);box-shadow:0 12px 25px rgba(11,19,43,.11)}
-  .action-choice-label{max-width:100%;padding-right:28px;font-size:10px;line-height:1.25;font-weight:850;letter-spacing:1px;text-transform:uppercase;color:#5F7085;overflow-wrap:anywhere}
-  .action-choice-message{font-size:18px;line-height:1.14;font-weight:900;letter-spacing:-.25px;color:var(--ink);overflow-wrap:anywhere}
+  .action-choice-label{max-width:calc(100% - 27px);font-size:10px;line-height:1.2;font-weight:850;letter-spacing:.75px;text-transform:uppercase;color:#5F7085;white-space:nowrap;word-break:normal;hyphens:none}
+  .action-choice-message{margin-top:auto;max-width:100%;font-size:15.5px;line-height:1.2;font-weight:850;letter-spacing:-.12px;color:var(--ink);overflow-wrap:normal;word-break:normal;hyphens:none}
   .action-choice-check{
     position:absolute;right:11px;top:11px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;
     border:1.5px solid #B9CBD1;background:#fff;color:transparent;font-size:12px;font-weight:900
@@ -410,7 +410,6 @@
   .auth-message{min-height:18px;margin:8px 0 0;font-size:11.5px;line-height:1.45;color:var(--muted)}
   .auth-message.error{color:#8B2437}.auth-message.success{color:var(--success)}
   .auth-link{border:0;background:none;color:var(--slate);text-decoration:underline;padding:4px;font-size:11.5px}
-  .auth-local{margin-top:15px;padding-top:14px;border-top:1px solid var(--line);display:none}
   .account-slot{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0}
   .account-identity{display:flex;align-items:center;gap:7px;min-width:0}
   .account-email{max-width:190px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11px;color:var(--muted-light)}
@@ -453,7 +452,11 @@
     .rail-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}
     .rail-tools{grid-template-columns:repeat(2,minmax(0,1fr))}
     .meta{grid-template-columns:1fr 1fr}
+    .action-cards{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:142px}
     .timer{top:8px}
+  }
+  @media(max-width:760px){
+    .action-cards{grid-template-columns:repeat(3,minmax(0,1fr))}
   }
   @media(max-width:650px){
     .app{padding:16px max(12px,env(safe-area-inset-right)) max(44px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}
@@ -476,7 +479,7 @@
     .action-row{grid-template-columns:1fr}.action-row>div:first-child{grid-column:auto}.action-row>div[style*="grid-column"]{grid-column:auto!important}.action-row>.btn-icon{justify-self:end}
     .parking-form,.agenda-add{grid-template-columns:1fr}.agenda-row{grid-template-columns:auto minmax(0,1fr) 68px auto auto}
     .example{grid-template-columns:1fr}.understanding{grid-template-columns:1fr}
-    .action-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.action-choice{min-height:150px;padding:14px 13px}.action-choice-message{font-size:17px}
+    .action-cards{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:138px;gap:9px}.action-choice{padding:12px 11px}.action-choice-label{max-width:calc(100% - 25px);font-size:9.5px;letter-spacing:.6px}.action-choice-message{font-size:14.5px;line-height:1.2}
     .timer{grid-template-columns:minmax(0,1fr) auto;top:max(5px,env(safe-area-inset-top));gap:8px;padding:10px 11px;margin-left:-5px;margin-right:-5px}
     .timer>div:nth-child(2){grid-column:1/-1;grid-row:2}.timer-buttons{grid-column:2;grid-row:1;justify-content:flex-end;flex-wrap:nowrap}.timer-buttons .btn{min-height:40px;padding:6px 8px;font-size:11px}.timer-info{font-size:10px}
     .stage-title{display:block}.stage-modebar{justify-content:stretch;margin-top:0}.stage-modebar .btn{width:100%}
@@ -501,6 +504,267 @@
   @media(max-width:350px){
     .account-slot{grid-template-columns:minmax(0,1fr) auto}.account-slot>.btn{grid-column:2}.account-menu{grid-column:2}.account-identity{grid-row:1/3}
     .summary-actions{grid-template-columns:1fr}
+  }
+
+  /* Tema editorial minimalista: gris, blanco, negro y verde D'2A2. */
+  :root{
+    --ink:#0D1411;
+    --ink-soft:#FFFFFF;
+    --slate:#343A34;
+    --teal:#D9ED92;
+    --mint:#F0F7D8;
+    --paper:#FFFFFF;
+    --paper-soft:#F2F3EF;
+    --line:#B9BCB5;
+    --muted:#62675F;
+    --muted-light:#72786F;
+    --warning:#D9ED92;
+    --success:#0D1411;
+    --danger:#0D1411;
+    --type-display:clamp(38px,4.6vw,54px);
+    --type-page:clamp(29px,3vw,35px);
+    --type-section:26px;
+    --type-card:19px;
+    --type-body:14px;
+    --type-small:12px;
+    --type-label:10px;
+    --sticky-header-height:66px;
+    --radius:2px;
+    --shadow:none;
+  }
+  body{background:#ECECEA;color:var(--ink);font-size:var(--type-body);line-height:1.5}
+  button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+  h2,h3,.action-choice-message,.home-primary strong{
+    font-family:Georgia,"Times New Roman",serif;
+    letter-spacing:-.025em
+  }
+  .hero h2{font-size:var(--type-display)}
+  .stage h2,.setup-card h2{font-size:var(--type-page)}
+  .section-head h2{font-size:var(--type-section)}
+  .panel h3,.session-card h3{font-size:var(--type-card)}
+  .hero p,.hint,.setup-lead{font-size:var(--type-body);line-height:1.62}
+  .eyebrow,.divider,.meta-field label,.mini-label,.rail-title{font-size:var(--type-label)}
+  .sub,.section-head p,.session-card p,.track-time{font-size:var(--type-small)}
+  .ui-icon{display:inline-block;position:relative;width:16px;height:16px;flex:0 0 auto;color:currentColor;vertical-align:-3px}
+  .ui-icon::before,.ui-icon::after{content:"";position:absolute;box-sizing:border-box}
+  .btn .ui-icon{width:16px;height:16px;margin-right:7px;vertical-align:-3px}
+  .btn .ui-icon-end{margin-right:0;margin-left:7px}
+  .btn-icon .ui-icon,.session-menu>summary .ui-icon,.timer-buttons .btn[aria-label="Reiniciar cronómetro"] .ui-icon{margin-right:0}
+  h2>.ui-icon{width:16px;height:16px;margin-right:9px;vertical-align:-1px}
+  .track-name .ui-icon,.setup-agenda-row .ui-icon,.agenda-row .ui-icon{width:16px;height:16px;margin-right:7px;vertical-align:-3px}
+  .ui-icon-opening::before{inset:1px 3px 1px 2px;border:1.5px solid currentColor;border-right:0}
+  .ui-icon-opening::after{right:1px;top:7px;width:7px;height:1.5px;background:currentColor;box-shadow:3px -2px 0 -1px currentColor,3px 2px 0 -1px currentColor}
+  .ui-icon-checkin::before{inset:1px;border:1.5px solid currentColor;border-radius:50%}
+  .ui-icon-checkin::after{left:4px;right:4px;top:7px;height:1.5px;background:currentColor}
+  .ui-icon-followup::before{inset:1px;border:1.5px solid currentColor;border-left-color:transparent;border-radius:50%}
+  .ui-icon-followup::after{left:0;top:1px;border:3px solid transparent;border-right-color:currentColor;transform:rotate(25deg)}
+  .ui-icon-feedback-out::before,.ui-icon-feedback-in::before{left:2px;top:7px;width:11px;height:1.5px;background:currentColor}
+  .ui-icon-feedback-out::after,.ui-icon-feedback-in::after{right:1px;top:4px;width:7px;height:7px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;transform:rotate(45deg)}
+  .ui-icon-feedback-in{transform:scaleX(-1)}
+  .ui-icon-goals::before{inset:1px;border:1.5px solid currentColor;border-radius:50%}
+  .ui-icon-goals::after{left:6px;top:6px;width:4px;height:4px;border-radius:50%;background:currentColor}
+  .ui-icon-close::before,.ui-icon-state-done::before{left:5px;top:1px;width:7px;height:12px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg)}
+  .ui-icon-note::before{inset:1px 2px;border:1.5px solid currentColor}
+  .ui-icon-note::after{left:5px;top:5px;width:6px;height:1px;background:currentColor;box-shadow:0 3px 0 currentColor,0 6px 0 currentColor}
+  .ui-icon-agenda::before{left:1px;right:1px;top:3px;height:1.5px;background:currentColor;box-shadow:0 4px 0 currentColor,0 8px 0 currentColor}
+  .ui-icon-pause::before{left:3px;top:1px;width:3px;height:12px;background:currentColor}
+  .ui-icon-pause::after{right:3px;top:1px;width:3px;height:12px;background:currentColor}
+  .ui-icon-play::before{left:4px;top:1px;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:9px solid currentColor}
+  .ui-icon-mic{background:linear-gradient(currentColor,currentColor) center bottom/1.5px 4px no-repeat}
+  .ui-icon-mic::before{left:4px;top:0;width:7px;height:10px;border:1.5px solid currentColor;border-radius:5px}
+  .ui-icon-mic::after{left:2px;top:5px;width:11px;height:7px;border:1.5px solid currentColor;border-top:0;border-radius:0 0 8px 8px}
+  .ui-icon-lock::before{left:2px;top:7px;width:12px;height:8px;border:1.5px solid currentColor}
+  .ui-icon-lock::after{left:4px;top:1px;width:8px;height:8px;border:1.5px solid currentColor;border-bottom:0;border-radius:5px 5px 0 0}
+  .ui-icon-alert::before{inset:1px;border:1.5px solid currentColor;border-radius:50%}
+  .ui-icon-alert::after{content:"!";inset:0;text-align:center;font:700 11px/16px Arial,sans-serif}
+  .ui-icon-parking::before{inset:1px;border:1.5px solid currentColor}
+  .ui-icon-parking::after{content:"P";inset:0;text-align:center;font:700 10px/16px Arial,sans-serif}
+  .ui-icon-forward::before,.ui-icon-back::before{left:2px;top:7px;width:11px;height:1.5px;background:currentColor}
+  .ui-icon-forward::after,.ui-icon-back::after{right:1px;top:4px;width:7px;height:7px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;transform:rotate(45deg)}
+  .ui-icon-back{transform:scaleX(-1)}
+  .ui-icon-up::before,.ui-icon-down::before{left:7px;top:2px;width:1.5px;height:11px;background:currentColor}
+  .ui-icon-up::after,.ui-icon-down::after{left:4px;top:1px;width:7px;height:7px;border-left:1.5px solid currentColor;border-top:1.5px solid currentColor;transform:rotate(45deg)}
+  .ui-icon-down{transform:rotate(180deg)}
+  .ui-icon-reset::before{inset:1px;border:1.5px solid currentColor;border-left-color:transparent;border-radius:50%}
+  .ui-icon-reset::after{left:0;top:1px;border:3px solid transparent;border-right-color:currentColor;transform:rotate(25deg)}
+  .ui-icon-focus::before{inset:1px;border:1.5px solid currentColor;border-radius:50%}
+  .ui-icon-focus::after{left:6px;top:6px;width:4px;height:4px;border-radius:50%;background:currentColor}
+  .ui-icon-structure::before{inset:1px;border:1.5px solid currentColor;background:linear-gradient(currentColor,currentColor) 50% 0/1.5px 100% no-repeat}
+  .ui-icon-structure::after{left:1px;right:1px;top:7px;height:1.5px;background:currentColor}
+  .ui-icon-state-current::before{left:5px;top:5px;width:6px;height:6px;border-radius:50%;background:currentColor}
+  .ui-icon-state-empty::before{left:4px;top:4px;width:8px;height:8px;border:1.5px solid currentColor;border-radius:50%}
+  .ui-icon-remove::before,.ui-icon-remove::after{left:7px;top:2px;width:1.5px;height:12px;background:currentColor;transform:rotate(45deg)}
+  .ui-icon-remove::after{transform:rotate(-45deg)}
+  .ui-icon-more::before{left:2px;top:7px;width:2px;height:2px;border-radius:50%;background:currentColor;box-shadow:5px 0 0 currentColor,10px 0 0 currentColor}
+  .ui-icon-plus::before{left:2px;top:7px;width:12px;height:1.5px;background:currentColor}
+  .ui-icon-plus::after{left:7px;top:2px;width:1.5px;height:12px;background:currentColor}
+  .app{max-width:1280px;padding-top:22px}
+  .topbar{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:70;
+    background:#fff;border:1px solid #242621;padding:10px 12px;margin-bottom:24px;color:var(--ink);
+    box-shadow:0 8px 18px rgba(13,20,17,.08)
+  }
+  .brand-mark{width:44px;height:44px;border-radius:2px;background:var(--teal);color:var(--ink);border:1px solid var(--teal);filter:none}
+  .brand-mark:hover{filter:none;background:var(--teal);border-color:var(--ink)}
+  .brand-mark svg{width:30px;height:30px}
+  .brand h1{
+    background:none;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-size:29px;letter-spacing:-1px
+  }
+  .top-actions{padding-left:18px;border-left:1px solid var(--line)}
+  .eyebrow,.save-state,.account-email,.sync-state,.section-head p{color:var(--muted)}
+  .btn{border-radius:2px;border:1px solid #242621;background:#fff;color:var(--ink);box-shadow:none}
+  .btn:hover{transform:none;background:#F0F1ED}
+  .btn-primary{background:var(--teal);border-color:var(--teal);color:var(--ink)}
+  .btn-primary:hover{background:var(--teal);border-color:var(--ink)}
+  .btn-secondary{background:var(--ink);border-color:var(--ink);color:#fff}
+  .btn-secondary:hover{background:#343630}
+  .btn-ghost,.btn-paper{background:#fff;color:var(--ink);border-color:#646861}
+  .btn-danger{background:#fff;color:var(--ink);border-color:#646861}
+  .btn-danger:hover{background:#ECEDEA;color:var(--ink);border-color:var(--ink)}
+  .panel,.hero-main,.session-card,.rail,.stage,.setup-card,.auth-card,.migration-card{
+    background:#fff;color:var(--ink);border:1px solid #8D9189;border-radius:2px;box-shadow:none
+  }
+  .hero{grid-template-columns:minmax(0,1fr);gap:12px;margin:24px 0 32px}
+  .hero-main{padding:32px}
+  .hero h2{line-height:1.02;font-weight:700}
+  .hero p,.resume-card p{color:var(--muted)}
+  .home-primary{background:var(--teal);border:1px solid var(--teal);border-radius:2px;padding:20px}
+  .home-primary strong,.home-primary span{color:var(--ink)}
+  .home-primary strong{font-size:20px}
+  .home-primary .btn-primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .resume-card{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,1.25fr);align-items:center;gap:22px;padding:16px 20px
+  }
+  .resume-card-copy{min-width:0}.resume-card-copy h3{margin-bottom:4px}.resume-card-copy p{margin:0}
+  .resume-card-copy .btn{margin-top:10px}.resume-card .note{margin:0}
+  .template-card{background:#fff;color:var(--ink);border:1px solid #8D9189;border-radius:2px}
+  .template-alternatives{padding:0;border:0;background:transparent}
+  .template-options-title{margin:16px 0 12px;font-size:13px;font-weight:800;color:var(--ink)}
+  .template-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+  .template-card strong{color:var(--ink)}
+  .template-card span{color:var(--muted)}
+  .template-card:hover,.template-card:focus-visible{background:var(--teal);border-color:var(--ink)}
+  .section-head{padding-bottom:9px;border-bottom:1px solid #242621}
+  .search,.meta-field input,.meta-field select{
+    background:#fff;color:var(--ink);border:1px solid #7D8179;border-radius:2px;color-scheme:light
+  }
+  .meta-field input::placeholder{color:#767B73}
+  .meta-field input::-webkit-calendar-picker-indicator{filter:none;opacity:.75}
+  .session-card{padding:18px}
+  .session-card p{color:var(--muted)}
+  .badge{border-radius:1px;border:1px solid currentColor;background:#fff}
+  .badge-draft,.badge-open{background:#F0F1ED;color:var(--ink);border-color:#8D9189}
+  .badge-done{background:var(--teal);color:var(--ink);border-color:var(--ink)}
+  .empty{color:var(--muted);border-color:#8D9189;border-radius:2px;background:#fff}
+  .progress-line,.progress-fill,.timer-track,.timer-fill,.quality-bar,.quality-fill{border-radius:0}
+  .progress-line{height:6px;background:var(--ink);overflow:hidden}.progress-fill{background:var(--teal);transition:width .45s linear}
+  .progress-meta{color:var(--muted)}
+  .rail{padding:10px;top:14px}
+  .rail-title,.track-num,.track-time{color:var(--muted)}
+  .track{color:var(--ink);border-radius:1px;border:1px solid transparent}
+  .track:hover{background:#F0F1ED;border-color:var(--line)}
+  .track.active{background:var(--teal);color:var(--ink);border-color:var(--teal)}
+  .track.active .track-num,.track.active .track-time{color:#1D251C}
+  .rail-tools{border-color:var(--line)}
+  .stage{padding:30px;min-height:540px}
+  .stage h2{font-weight:700}
+  .timer{
+    top:calc(env(safe-area-inset-top,0px) + var(--sticky-header-height) + 10px);z-index:50;
+    background:var(--ink);border:1px solid var(--ink);border-radius:2px;box-shadow:none
+  }
+  .clock,.clock.warning,.clock.done{color:var(--teal)}.timer-sub,.timer-info{color:#C5C9C0}
+  .timer-fill{background:var(--teal)}
+  .timer .btn-ghost{background:transparent;color:#fff;border-color:#7D8179}
+  .timer .btn-primary{background:var(--teal);color:var(--ink);border-color:var(--teal)}
+  .field input[type=text],.field input[type=date],.field input[type=number],.field textarea,.field select,
+  .agenda-row input,.agenda-add input,.action-row input,.action-row select,.parking-form input,.parking-form select,
+  .quick-capture-row input,.metric select,.summary-editor textarea,.auth-field input{
+    border:1px solid #8D9189;border-radius:2px;background:#fff;color:var(--ink)
+  }
+  .field input:focus,.field textarea:focus,.field select:focus,.summary-editor textarea:focus{
+    border-color:var(--ink);box-shadow:0 0 0 2px rgba(217,237,146,.7)
+  }
+  .field>label,.field-label{color:#242821}
+  .voice-input-shell{position:relative;width:100%}
+  .voice-input-shell textarea,.voice-input-shell input[type=text]{padding-right:52px}
+  .voice-field-button{
+    position:absolute;top:2px;right:2px;width:40px;height:40px;min-width:40px;min-height:40px;padding:0;
+    display:grid;place-items:center;border:0;border-radius:50%;background:transparent;color:var(--muted);box-shadow:none;z-index:2
+  }
+  .voice-field-button:hover{background:var(--paper-soft);color:var(--ink)}
+  .voice-field-button .ui-icon{width:16px;height:16px;vertical-align:0}
+  .voice-field-button.recording{background:var(--teal);border-color:var(--ink);color:var(--ink)}
+  .note{border-radius:1px;background:var(--paper-soft);border-color:var(--teal);color:var(--ink)}
+  .note.warning{background:var(--paper-soft);border-color:var(--teal)}
+  .note.private{background:#F0F0EE;border-color:#676B65}
+  .divider{border-color:#A6AAA2;color:#3F473E}
+  .check-line input,.agenda-row input[type=checkbox],.setup-agenda-row input[type=checkbox]{accent-color:var(--teal)}
+  .choice{border:1px solid #8D9189;border-radius:2px;color:#353A34}
+  .choice.selected{background:var(--teal);border-color:var(--teal);color:var(--ink);box-shadow:none}
+  .action-choice{border:1px solid #8D9189;border-radius:2px;background:#fff;box-shadow:none}
+  .action-choice:hover{transform:none;border-color:var(--ink);box-shadow:none;background:#F4F5F2}
+  .action-choice-label{color:#596057}
+  .action-choice-message{font-weight:700;letter-spacing:-.02em}
+  .action-choice-check{border-radius:0;border-color:#8D9189}
+  .action-choice.selected{background:var(--teal);border-color:var(--teal);box-shadow:none;color:var(--ink)}
+  .action-choice.selected .action-choice-label,.action-choice.selected .action-choice-message{color:var(--ink)}
+  .action-choice.selected .action-choice-check{background:var(--ink);border-color:var(--ink);color:#fff}
+  .item-card,.quality,details.help,.action-row,.agenda-row,.metric,.quick-capture,.structured-panel,.private-section,
+  .summary-signal,.setup-agenda-row,.parking-item{
+    border-radius:2px;box-shadow:none
+  }
+  .item-card,details.help,.action-row,.agenda-row,.metric,.quick-capture,.structured-panel,.summary-signal,.setup-agenda-row{background:#fff;border-color:var(--line)}
+  .quality,.parking-item,.check-item{background:#F0F1ED}
+  .item-number{border-radius:1px;background:var(--ink);color:#fff}
+  .quality-fill{background:var(--teal)}
+  .example-good{background:var(--teal);color:var(--ink)}.example-bad{background:#ECEDEA;color:var(--ink)}
+  details.help summary,.parking summary,.structured-panel>summary{color:#343A34}
+  .parking-alert{background:var(--teal);color:var(--ink);border:1px solid var(--ink);border-left:5px solid var(--ink);border-radius:2px}
+  .parking-alert h3,.parking-alert-destination{color:var(--ink)}
+  .parking-decision{background:#fff;border-color:#8D9189;border-radius:1px}
+  .parking-status{border-radius:1px;background:var(--paper-soft);color:var(--ink)}
+  .stage-nav{border-color:var(--line)}
+  .check-item{border-radius:1px}.check-item.ok{background:var(--teal);color:var(--ink)}.check-item.missing{background:#ECEDEA;color:var(--ink)}
+  .mood-compare{background:#F0F1ED;border-radius:2px}
+  .mood-big{font:700 20px/1.2 Georgia,"Times New Roman",serif;letter-spacing:-.02em}
+  .private-section{background:#F0F1ED;border-color:#8D9189}.private-section>summary{color:var(--ink)}
+  .private-section>summary .ui-icon,.parking>summary .ui-icon{margin-right:8px}
+  .quality-list .ui-icon,.check-item .ui-icon,.parking-alert-destination .ui-icon{margin-right:5px;vertical-align:-3px}
+  .voice-dock{background:var(--ink);border:1px solid var(--ink);border-radius:2px;box-shadow:0 18px 40px rgba(0,0,0,.18)}
+  .voice-dock-meta{color:#C5C9C0}.voice-dock-time,.voice-language-status{color:var(--teal)}
+  .voice-language{background:#22241F;color:#fff;border-color:#71766E;border-radius:1px}
+  .voice-pulse{background:var(--teal);box-shadow:0 0 0 0 rgba(217,237,146,.6)}
+  @keyframes voicePulse{70%{box-shadow:0 0 0 10px rgba(217,237,146,0)}100%{box-shadow:0 0 0 0 rgba(217,237,146,0)}}
+  .summary-modal{background:rgba(18,19,16,.56);backdrop-filter:blur(3px)}
+  .summary-dialog{border:1px solid #242621;border-radius:2px;box-shadow:none}
+  .summary-method{background:var(--paper-soft);border-color:var(--teal);border-radius:1px;color:var(--ink)}
+  .auth-shell{background:#ECECEA}
+  .auth-tabs{background:#ECEDEA;border:1px solid var(--line);border-radius:2px}
+  .auth-tab{border-radius:1px}.auth-tab.active{box-shadow:none;border:1px solid #8D9189}
+  .auth-message.error,.auth-message.success,.sync-state.error,.quality-ok{color:var(--ink)}
+  .setup-card{max-width:960px}
+  .quick-capture,.structured-panel,.private-section{border-radius:2px}
+  .session-menu-pop{border-radius:2px;border-color:#8D9189;box-shadow:0 10px 26px rgba(0,0,0,.12)}
+  .migration-modal{background:rgba(18,19,16,.58)}
+  .toast{background:var(--ink);border:1px solid var(--ink);border-radius:2px;box-shadow:none}
+  .field input::placeholder,.field textarea::placeholder,.parking-form input::placeholder,
+  .quick-capture-row input::placeholder,.search::placeholder{color:#62675F;opacity:1}
+  @media(max-width:900px){
+    .hero{gap:10px}.top-actions{padding-left:12px}.rail{border-color:#8D9189}
+  }
+  @media(max-width:650px){
+    .app{padding-top:12px}
+    .topbar{padding:12px;margin-bottom:18px}
+    .top-actions{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+    .brand-mark{width:44px;height:44px;border-radius:2px}.brand h1{font-size:29px}
+    .hero{margin-top:16px}.hero-main,.stage{padding:20px 16px}.hero h2{font-size:38px}.stage h2,.setup-card h2{font-size:29px}.section-head h2{font-size:23px}
+    .resume-card{grid-template-columns:1fr;gap:12px;padding:16px}
+    .template-grid{grid-template-columns:1fr}
+    .panel,.hero-main,.stage,.session-card,.rail,.setup-card{border-radius:2px}
+    .track{background:#fff;border-color:var(--line)}.track.active{background:var(--teal);border-color:var(--teal)}
+    .timer{top:calc(env(safe-area-inset-top,0px) + var(--sticky-header-height) + 8px);border-radius:2px}
+    .voice-field-button{width:40px;height:40px;min-width:40px;min-height:40px}
   }
 </style>
 </head>
@@ -538,7 +802,6 @@
       <button class="btn btn-primary" type="submit">Guardar nueva contraseña</button>
     </form>
     <p id="authMessage" class="auth-message" role="status" aria-live="polite"></p>
-    <div id="authLocal" class="auth-local"><button class="btn btn-paper" type="button" data-auth-action="local">Entrar en modo de prueba local</button></div>
   </div>
 </section>
 <main id="app" class="app"></main>
@@ -609,16 +872,16 @@
   const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
   try{localStorage.removeItem('d2a2_ai_client');}catch(_){}
   const MOODS = [
-    {v:'motivado',e:'🤩',l:'Motivado'},
-    {v:'tranquilo',e:'🙂',l:'Tranquilo'},
-    {v:'normal',e:'😐',l:'Normal'},
-    {v:'cansado',e:'😮‍💨',l:'Cansado'},
-    {v:'dificil',e:'😞',l:'Difícil'},
-    {v:'frustrado',e:'😤',l:'Frustrado'},
-    {v:'preocupado',e:'😟',l:'Preocupado'},
-    {v:'orgulloso',e:'😊',l:'Orgulloso'},
-    {v:'confundido',e:'😵‍💫',l:'Confundido'},
-    {v:'esperanzado',e:'🌱',l:'Esperanzado'}
+    {v:'motivado',l:'Motivado'},
+    {v:'tranquilo',l:'Tranquilo'},
+    {v:'normal',l:'Normal'},
+    {v:'cansado',l:'Cansado'},
+    {v:'dificil',l:'Difícil'},
+    {v:'frustrado',l:'Frustrado'},
+    {v:'preocupado',l:'Preocupado'},
+    {v:'orgulloso',l:'Orgulloso'},
+    {v:'confundido',l:'Confundido'},
+    {v:'esperanzado',l:'Esperanzado'}
   ];
   const ACTION_CARDS = [
     {value:'Continuar',message:'¡Sigamos así!'},
@@ -643,20 +906,192 @@
     ['aparte','Conversación aparte']
   ];
   const STEP_LIBRARY = {
-    apertura:{id:'apertura',title:'Apertura',icon:'🎬',min:5},
-    checkin:{id:'checkin',title:'Check-in',icon:'🌡️',min:5},
-    seguimiento:{id:'seguimiento',title:'Seguimiento anterior',icon:'🧩',min:5},
-    feedbackTuyo:{id:'feedbackTuyo',title:'Feedback a la dupla',icon:'🎯',min:10},
-    feedbackSuyo:{id:'feedbackSuyo',title:'Feedback hacia ti',icon:'🔁',min:8},
-    objetivos:{id:'objetivos',title:'Objetivos y compromisos',icon:'🧭',min:8},
-    cierre:{id:'cierre',title:'Cierre',icon:'🎊',min:4}
+    apertura:{id:'apertura',title:'Apertura',icon:'opening',min:5},
+    checkin:{id:'checkin',title:'Check-in',icon:'checkin',min:5},
+    seguimiento:{id:'seguimiento',title:'Seguimiento anterior',icon:'followup',min:5},
+    feedbackTuyo:{id:'feedbackTuyo',title:'Feedback al miembro del equipo',icon:'feedback-out',min:10},
+    feedbackSuyo:{id:'feedbackSuyo',title:'Feedback hacia ti',icon:'feedback-in',min:8},
+    objetivos:{id:'objetivos',title:'Objetivos y compromisos',icon:'goals',min:8},
+    primeraContexto:{id:'primeraContexto',title:'Conocernos y entender el contexto',icon:'checkin',min:10},
+    primeraExpectativas:{id:'primeraExpectativas',title:'Expectativas mutuas',icon:'feedback-out',min:10},
+    primeraPreferencias:{id:'primeraPreferencias',title:'Forma de trabajar y comunicarnos',icon:'feedback-in',min:10},
+    primeraAcuerdos:{id:'primeraAcuerdos',title:'Acuerdos de la relación 1:1',icon:'goals',min:8},
+    crecimientoDireccion:{id:'crecimientoDireccion',title:'Dirección de crecimiento',icon:'focus',min:8},
+    crecimientoFortalezas:{id:'crecimientoFortalezas',title:'Fortalezas y energía',icon:'feedback-out',min:8},
+    crecimientoFoco:{id:'crecimientoFoco',title:'Foco de desarrollo',icon:'focus',min:10},
+    crecimientoExperimentos:{id:'crecimientoExperimentos',title:'Experimentos y oportunidades',icon:'note',min:12},
+    crecimientoPlan:{id:'crecimientoPlan',title:'Plan de crecimiento',icon:'goals',min:8},
+    dificilPreparacion:{id:'dificilPreparacion',title:'Preparación del líder',icon:'note',min:5},
+    dificilApertura:{id:'dificilApertura',title:'Apertura y marco de seguridad',icon:'opening',min:5},
+    dificilPerspectiva:{id:'dificilPerspectiva',title:'Perspectiva del miembro del equipo',icon:'feedback-in',min:8},
+    dificilHechos:{id:'dificilHechos',title:'Hechos, comportamiento e impacto',icon:'feedback-out',min:12},
+    dificilCausas:{id:'dificilCausas',title:'Comprensión y causas',icon:'focus',min:10},
+    dificilAcuerdos:{id:'dificilAcuerdos',title:'Acuerdo, reparación o límite',icon:'goals',min:10},
+    cierre:{id:'cierre',title:'Cierre',icon:'close',min:4}
   };
+  const ICON_NAMES=new Set(['opening','checkin','followup','feedback-out','feedback-in','goals','close','note','agenda','pause','play','mic','lock','alert','parking','forward','back','up','down','reset','focus','structure','state-done','state-current','state-empty','remove','more','plus']);
+  function iconName(value){return ICON_NAMES.has(value)?value:'note';}
+  function uiIcon(value,end=false){return `<span class="ui-icon ui-icon-${iconName(value)}${end?' ui-icon-end':''}" aria-hidden="true"></span>`;}
   const TEMPLATE_INFO = {
-    primera:{title:'Primera sesión',desc:'Contexto, confianza, expectativas y dos objetivos.',steps:['apertura','checkin','feedbackTuyo','feedbackSuyo','objetivos','cierre']},
+    primera:{title:'Primera sesión',desc:'Construyan contexto, expectativas y acuerdos para trabajar juntos.',steps:['apertura','primeraContexto','primeraExpectativas','primeraPreferencias','primeraAcuerdos','cierre']},
     regular:{title:'Seguimiento regular',desc:'Revisión de acuerdos, feedback bilateral y próximos pasos.',steps:['apertura','checkin','seguimiento','feedbackTuyo','feedbackSuyo','objetivos','cierre']},
-    crecimiento:{title:'Crecimiento',desc:'Fortalezas, desarrollo profesional, apoyo y objetivos.',steps:['apertura','checkin','seguimiento','feedbackTuyo','feedbackSuyo','objetivos','cierre']},
-    dificil:{title:'Conversación difícil',desc:'Más tiempo para comprender una situación y acordar reparación.',steps:['apertura','checkin','feedbackTuyo','feedbackSuyo','objetivos','cierre']},
-    conflicto:{title:'Conflicto',desc:'Perspectivas, impacto, necesidades y acuerdos de relación.',steps:['apertura','checkin','feedbackTuyo','feedbackSuyo','objetivos','cierre']}
+    crecimiento:{title:'Crecimiento',desc:'Exploren aspiraciones, fortalezas, brechas y experimentos de desarrollo.',steps:['apertura','crecimientoDireccion','crecimientoFortalezas','crecimientoFoco','crecimientoExperimentos','crecimientoPlan','cierre']},
+    dificil:{title:'Conversación difícil',desc:'Ordenen los hechos, escuchen perspectivas y acuerden reparación, apoyo o límites.',steps:['dificilPreparacion','dificilApertura','dificilPerspectiva','dificilHechos','dificilCausas','dificilAcuerdos','cierre']},
+    conflicto:{title:'Conflicto',desc:'Flujo anterior conservado únicamente para sesiones existentes.',steps:['apertura','checkin','feedbackTuyo','feedbackSuyo','objetivos','cierre'],hidden:true}
+  };
+
+  const SPECIAL_STAGE_CONFIG = {
+    primeraContexto:{
+      hint:'Conozcan el contexto profesional y humano necesario para construir una relación de trabajo útil.',
+      note:'No intenten cubrir toda la historia. Registren solamente aquello que ayudará a liderar, colaborar y tomar mejores decisiones.',
+      fields:[
+        {key:'contexto',label:'¿Qué responsabilidad y contexto trae cada persona?',required:true,wide:true},
+        {key:'prioridades',label:'¿Cuáles son las prioridades y desafíos actuales?',required:true},
+        {key:'fortalezas',label:'¿Qué fortalezas quieres que la otra persona conozca?'},
+        {key:'experiencias',label:'¿Qué experiencias anteriores de liderazgo o 1:1 conviene tener presentes?',wide:true}
+      ]
+    },
+    primeraExpectativas:{
+      hint:'Aclaren qué espera cada persona de la relación y qué significa que estas conversaciones sean valiosas.',
+      fields:[
+        {key:'valor',label:'¿Qué debería aportar una buena sesión 1:1?',required:true,wide:true},
+        {key:'necesitaMiembro',label:'¿Qué necesita el miembro del equipo del líder?',required:true},
+        {key:'necesitaLider',label:'¿Qué necesita el líder del miembro del equipo?',required:true},
+        {key:'limites',label:'¿Qué no debería ocurrir en estas conversaciones?',wide:true}
+      ]
+    },
+    primeraPreferencias:{
+      hint:'Definan cómo comunicarse, reconocer, apoyar y conversar cuando aparezca una diferencia.',
+      fields:[
+        {key:'comunicacion',label:'¿Cómo prefieren comunicarse y recibir contexto?',required:true},
+        {key:'feedback',label:'¿Cómo prefiere recibir feedback el miembro del equipo?',required:true},
+        {key:'reconocimiento',label:'¿Qué forma de reconocimiento resulta significativa?'},
+        {key:'apoyo',label:'¿Cuándo espera autonomía y cuándo acompañamiento?'},
+        {key:'desacuerdo',label:'¿Cómo quieren abordar los desacuerdos?',wide:true}
+      ]
+    },
+    primeraAcuerdos:{
+      hint:'Conviertan lo conversado en reglas simples y observables para las próximas sesiones.',
+      includeActions:true,
+      fields:[
+        {key:'confidencialidad',label:'¿Qué acuerdo de confidencialidad necesitan?',required:true},
+        {key:'decisiones',label:'¿Cómo documentarán decisiones y compromisos?',required:true},
+        {key:'alertas',label:'¿Qué señales indicarían que deben conversar antes de la próxima 1:1?'},
+        {key:'prioridad',label:'¿Cuál será el primer tema que retomarán?',wide:true,required:true}
+      ]
+    },
+    crecimientoDireccion:{
+      hint:'Definan hacia dónde quiere crecer la persona antes de hablar de brechas o planes.',
+      fields:[
+        {key:'aspiracion',label:'¿Qué quiere aprender, asumir o conseguir en los próximos meses?',required:true,wide:true},
+        {key:'motivacion',label:'¿Por qué ese crecimiento es importante ahora?',required:true},
+        {key:'horizonte',label:'Horizonte de revisión',type:'select',options:[['tres_meses','3 meses'],['seis_meses','6 meses'],['doce_meses','12 meses'],['otro','Otro']]},
+        {key:'restricciones',label:'¿Qué condiciones o restricciones deben tenerse en cuenta?',wide:true}
+      ]
+    },
+    crecimientoFortalezas:{
+      hint:'Identifiquen capacidades comprobadas y aquello que da energía para construir desde lo que ya funciona.',
+      fields:[
+        {key:'fortalezas',label:'¿Qué fortalezas aparecen de manera consistente?',required:true},
+        {key:'evidencia',label:'¿Qué ejemplos concretos demuestran esas fortalezas?',required:true},
+        {key:'energia',label:'¿Qué tipo de trabajo le da más energía?'},
+        {key:'subutilizada',label:'¿Qué capacidad está siendo poco utilizada?',wide:true}
+      ]
+    },
+    crecimientoFoco:{
+      hint:'Elijan un foco concreto de desarrollo; una lista larga reduce la probabilidad de avanzar.',
+      fields:[
+        {key:'foco',label:'¿Qué comportamiento o capacidad conviene desarrollar?',required:true,wide:true},
+        {key:'impacto',label:'¿Qué sería diferente si mejora?',required:true},
+        {key:'brecha',label:'¿Qué brecha observable existe hoy?',required:true},
+        {key:'feedback',label:'¿Qué feedback o evidencia respalda este foco?',wide:true}
+      ]
+    },
+    crecimientoExperimentos:{
+      hint:'Diseñen oportunidades reales de práctica, no solamente cursos o intenciones.',
+      fields:[
+        {key:'experimento',label:'¿Qué experimento concreto puede realizar?',required:true,wide:true},
+        {key:'oportunidad',label:'¿En qué proyecto, reunión o responsabilidad puede practicar?',required:true},
+        {key:'apoyo',label:'¿Qué apoyo, exposición o recurso necesita del líder?',required:true},
+        {key:'riesgos',label:'¿Qué podría bloquear el experimento?'},
+        {key:'evidencia',label:'¿Qué evidencia mostrará aprendizaje?',wide:true,required:true}
+      ]
+    },
+    crecimientoPlan:{
+      hint:'Definan seguimiento, responsables y una fecha para revisar evidencia, no solamente percepciones.',
+      includeActions:true,
+      fields:[
+        {key:'hito',label:'Primer hito observable',required:true},
+        {key:'revision',label:'Fecha de revisión',type:'date',required:true},
+        {key:'seguimiento',label:'¿Cómo harán seguimiento entre sesiones?',wide:true},
+        {key:'responsabilidad',label:'¿Qué hará cada persona para sostener el plan?',wide:true,required:true}
+      ]
+    },
+    dificilPreparacion:{
+      hint:'Antes de conversar, separa hechos e interpretaciones y define una intención constructiva.',
+      note:'Bloque privado del líder. Esta preparación sirve para ordenar la conversación, no para construir un caso contra la otra persona.',
+      private:true,
+      fields:[
+        {key:'tipo',label:'¿Qué tipo de situación quieres abordar?',type:'select',required:true,options:[['','Seleccionar…'],['desempeno','Comportamiento o desempeño'],['incumplimiento','Incumplimiento de un acuerdo'],['conflicto','Tensión o conflicto interpersonal'],['reparacion','Conversación de reparación'],['limite','Expectativa o límite que debe aclararse']]},
+        {key:'hechos',label:'¿Qué hechos están comprobados?',required:true,wide:true},
+        {key:'interpretaciones',label:'¿Qué parte podría ser una interpretación o suposición?',wide:true},
+        {key:'proposito',label:'¿Por qué es necesario conversar ahora?',required:true},
+        {key:'resultado',label:'¿Qué resultado razonable buscas?',required:true},
+        {key:'disposicion',label:'¿Estás en condiciones emocionales de conversar?',type:'select',options:[['','Seleccionar…'],['si','Sí'],['pausa','Necesito una pausa antes'],['apoyo','Necesito preparar la conversación con apoyo']]}
+      ]
+    },
+    dificilApertura:{
+      hint:'Explica el propósito sin acusar, establece límites y deja claro que escucharás la otra perspectiva.',
+      fields:[
+        {key:'mensaje',label:'¿Cómo abrirás la conversación?',required:true,wide:true},
+        {key:'intencion',label:'¿Qué intención quieres declarar?',required:true},
+        {key:'seguridad',label:'¿Qué necesita ocurrir para conversar con respeto?'},
+        {key:'limites',label:'¿Qué límite o estándar debe quedar claro?',wide:true}
+      ]
+    },
+    dificilPerspectiva:{
+      hint:'Escucha antes de responder. Busca comprender contexto, intención y necesidades sin convertirlas automáticamente en justificación.',
+      note:'Durante este bloque evita refutar. Primero resume lo escuchado y confirma si lo entendiste bien.',
+      fields:[
+        {key:'version',label:'¿Cómo entiende la situación el miembro del equipo?',required:true,wide:true},
+        {key:'contexto',label:'¿Qué contexto no conocía el líder?',required:true},
+        {key:'intencion',label:'¿Qué intentaba conseguir la otra persona?'},
+        {key:'emociones',label:'¿Qué emociones o necesidades están presentes?',wide:true}
+      ]
+    },
+    dificilHechos:{
+      hint:'Construyan una versión concreta de la situación: qué ocurrió, qué impacto produjo y qué expectativa estaba involucrada.',
+      fields:[
+        {key:'situacion',label:'Situación: ¿cuándo y dónde ocurrió?',required:true},
+        {key:'comportamiento',label:'Comportamiento: ¿qué se hizo o dijo concretamente?',required:true},
+        {key:'impacto',label:'Impacto: ¿qué efecto produjo?',required:true},
+        {key:'estandar',label:'¿Qué expectativa, acuerdo o estándar estaba relacionado?',required:true},
+        {key:'hechosCompartidos',label:'¿Qué hechos reconocen ambas personas?',wide:true,required:true}
+      ]
+    },
+    dificilCausas:{
+      hint:'Identifiquen coincidencias, diferencias y la causa que conviene atender para no repetir la situación.',
+      fields:[
+        {key:'acuerdos',label:'¿En qué están de acuerdo?',required:true},
+        {key:'desacuerdos',label:'¿En qué no están de acuerdo?',required:true},
+        {key:'informacion',label:'¿Qué información falta?'},
+        {key:'causa',label:'Factor principal',type:'select',required:true,options:[['','Seleccionar…'],['claridad','Falta de claridad'],['capacidad','Capacidad o experiencia'],['recursos','Recursos o tiempo'],['prioridades','Prioridades en conflicto'],['relacion','Relación o confianza'],['decision','Decisión consciente'],['otro','Otro']]},
+        {key:'apoyo',label:'¿Qué apoyo ayudaría a resolver la causa?',wide:true}
+      ]
+    },
+    dificilAcuerdos:{
+      hint:'Definan qué cambiará, qué apoyo existirá y cómo sabrán si la situación fue reparada.',
+      includeActions:true,
+      fields:[
+        {key:'cambio',label:'¿Qué comportamiento o resultado debe cambiar?',required:true,wide:true},
+        {key:'reparacion',label:'¿Qué reparación concreta hace falta?'},
+        {key:'apoyo',label:'¿Qué apoyo ofrecerá el líder?'},
+        {key:'limite',label:'¿Qué límite o expectativa queda acordado?',required:true,wide:true},
+        {key:'fecha',label:'Fecha de revisión',type:'date',required:true},
+        {key:'exito',label:'¿Qué evidencia mostrará que el acuerdo se cumplió?',required:true},
+        {key:'consecuencia',label:'¿Qué ocurrirá si el acuerdo no se cumple?',wide:true}
+      ]
+    }
   };
 
   let sessions = loadSessions();
@@ -689,6 +1124,7 @@
   let voiceStartedAt = 0;
   let summaryReview = null;
   let summaryPreviousFocus = null;
+  let stickyHeaderObserver = null;
 
   const app = document.getElementById('app');
   const importFile = document.getElementById('importFile');
@@ -785,7 +1221,7 @@
       ...item,id:uid('park'),status:'open',carriedFrom:previous.id
     })) : [];
     return {
-      schemaVersion:4,id:uid('session'),template,status:'draft',createdAt:new Date().toISOString(),updatedAt:new Date().toISOString(),startedAt:null,completedAt:null,syncVersion:0,archivedAt:null,
+      schemaVersion:5,id:uid('session'),template,status:'draft',createdAt:new Date().toISOString(),updatedAt:new Date().toISOString(),startedAt:null,completedAt:null,syncVersion:0,archivedAt:null,
       previousSessionId:previous?.id||null,
       meta:{name:previous?.meta?.name||'',date:today(),leader:previous?.meta?.leader||'',cadence:previous?.close?.cadence||'quincenal'},
       agenda:steps,stepStates,timers,sessionElapsed:0,
@@ -797,6 +1233,7 @@
       goals:{items:[emptyGoal(),emptyGoal()]},
       actions:[emptyAction()],
       parking:carriedParking,
+      workflow:{},
       customNotes:{},
       dictation:{consent:false},
       close:{summary:'',closingMoods:[],moodReason:'',feltHeard:'',clarity:'',usefulness:'',leaderLearning:'',leaderAction:'',privateNotes:'',nextDate:'',nextPriority:'',cadence:'quincenal'}
@@ -815,13 +1252,14 @@
     merged.goals={...fresh.goals,...(data.goals||{})};
     merged.close={...fresh.close,...(data.close||{})};
     merged.dictation={...fresh.dictation,...(data.dictation||{})};
+    merged.workflow={...fresh.workflow,...(data.workflow||{})};
     delete merged.aiNotes;
     merged.id = data.id || uid('session');
-    merged.schemaVersion=4;
+    merged.schemaVersion=5;
     merged.startedAt=data.startedAt||null;
     merged.syncVersion=Number(data.syncVersion)||0;
     merged.archivedAt=data.archivedAt||null;
-    merged.agenda=(data.agenda?.length?data.agenda:fresh.agenda).map(s=>({...s,enabled:s.enabled!==false}));
+    merged.agenda=(data.agenda?.length?data.agenda:fresh.agenda).map(s=>({...s,icon:ICON_NAMES.has(s.icon)?s.icon:(STEP_LIBRARY[s.id]?.icon||'note'),enabled:s.enabled!==false}));
     merged.actions=Array.isArray(data.actions)?data.actions:[emptyAction()];
     merged.parking=Array.isArray(data.parking)?data.parking.map(item=>({...item,status:item.status||'open'})):[];
     merged.stepStates={...fresh.stepStates,...(data.stepStates||{})};
@@ -881,6 +1319,39 @@
   function completedCount(){
     return enabledSteps().filter(s=>session.stepStates[s.id]==='complete').length;
   }
+  function sessionProgressPercent(){
+    if(!session)return 0;
+    const elapsed=Math.max(0,Number(session.sessionElapsed)||0);
+    const estimateSeconds=Math.max(1,totalBudget()*60);
+    const percentage=Math.round(elapsed/estimateSeconds*100);
+    return Math.min(100,elapsed>0?Math.max(1,percentage):0);
+  }
+  function detailsStateKey(detail,index,stepId){
+    const localKey=detail.dataset.detailsKey||`${detail.className||'details'}:${index}`;
+    return `${stepId||''}|${localKey}`;
+  }
+  function captureOpenDetails(){
+    const stage=document.getElementById('stage');
+    if(!stage)return new Set();
+    const stepId=stage.dataset.stepId||'';
+    return new Set([...stage.querySelectorAll('details')]
+      .map((detail,index)=>detail.open?detailsStateKey(detail,index,stepId):null)
+      .filter(Boolean));
+  }
+  function restoreOpenDetails(openDetails){
+    if(!openDetails?.size)return;
+    const stage=document.getElementById('stage');
+    if(!stage)return;
+    const stepId=stage.dataset.stepId||'';
+    [...stage.querySelectorAll('details')].forEach((detail,index)=>{
+      if(openDetails.has(detailsStateKey(detail,index,stepId)))detail.open=true;
+    });
+  }
+  function closeContextMenus(except=null){
+    document.querySelectorAll('details.session-menu[open],details.account-menu[open]').forEach(menu=>{
+      if(menu!==except)menu.open=false;
+    });
+  }
   function latestDraft(){
     return [...sessions].filter(s=>s.status==='draft').sort((a,b)=>new Date(b.updatedAt)-new Date(a.updatedAt))[0];
   }
@@ -906,8 +1377,7 @@
         </div>
         <div class="top-actions">
           <div class="header-session-actions">
-            ${home?'':`<button class="btn btn-ghost btn-small" data-action="go-home">← Historial</button><span id="saveState" class="save-state">Guardado</span>`}
-            ${home?`<button class="btn btn-ghost btn-small" data-action="trigger-import">Importar respaldo</button>`:''}
+            ${home?'':`<button class="btn btn-ghost btn-small" data-action="go-home">${uiIcon('back')}Historial</button><span id="saveState" class="save-state">Guardado</span>`}
           </div>
           <div id="accountSlot" class="account-slot" aria-label="Cuenta y sincronización"></div>
         </div>
@@ -934,25 +1404,28 @@
             <div><strong>Seguimiento regular</strong><span>Check-in, seguimiento, feedback bilateral y próximos pasos.</span></div>
             <button class="btn btn-primary" data-action="new-session" data-template="regular">Nueva sesión 1:1</button>
           </div>
-          <details class="template-more">
-            <summary>Elegir otro tipo de conversación</summary>
+          <section class="template-alternatives" aria-labelledby="templateOptionsTitle">
+            <h3 id="templateOptionsTitle" class="template-options-title">Otros tipos de conversación</h3>
             <div class="template-grid">
-              ${Object.entries(TEMPLATE_INFO).filter(([key])=>key!=='regular').map(([key,t])=>`<button class="template-card" data-action="new-session" data-template="${key}"><strong>${esc(t.title)}</strong><span>${esc(t.desc)}</span></button>`).join('')}
+              ${Object.entries(TEMPLATE_INFO).filter(([key,t])=>key!=='regular'&&!t.hidden).map(([key,t])=>`<button class="template-card" data-action="new-session" data-template="${key}"><strong>${esc(t.title)}</strong><span>${esc(t.desc)}</span></button>`).join('')}
             </div>
-          </details>
+          </section>
         </div>
         <aside class="panel resume-card">
-          <h3>${draft?'Sesión pendiente':'Todo listo'}</h3>
-          ${draft?`<p>Encontramos un borrador de <strong>${esc(draft.meta?.name||'sesión sin nombre')}</strong>, actualizado ${new Date(draft.updatedAt).toLocaleString('es-CO')}.</p>
-            <button class="btn btn-primary" data-action="open-session" data-id="${draft.id}">Continuar borrador</button>`:
-            `<p>Crea una sesión y la aplicación guardará automáticamente cada cambio en este navegador.</p>`}
-          <div class="note" style="margin-bottom:0">Cuando hayas iniciado sesión, tus sesiones se sincronizan con tu cuenta privada. El respaldo JSON sigue disponible como copia adicional.</div>
+          <div class="resume-card-copy">
+            <h3>${draft?'Sesión pendiente':'Todo listo'}</h3>
+            ${draft?`<p>Encontramos un borrador de <strong>${esc(draft.meta?.name||'sesión sin nombre')}</strong>, actualizado ${new Date(draft.updatedAt).toLocaleString('es-CO')}.</p>
+              <button class="btn btn-primary" data-action="open-session" data-id="${draft.id}">Continuar borrador</button>`:
+              `<p>Crea una sesión y la aplicación guardará automáticamente cada cambio en este navegador.</p>`}
+          </div>
+          <div class="note">Cuando hayas iniciado sesión, tus sesiones se sincronizan con tu cuenta privada. El respaldo JSON sigue disponible como copia adicional.</div>
         </aside>
       </section>
       <div class="section-head">
         <div><h2>Historial local</h2><p>Borradores, sesiones terminadas y próximos compromisos.</p></div>
         <div class="history-tools">
           <input class="search" type="search" value="${esc(historyFilter)}" placeholder="Buscar persona, líder o fecha" aria-label="Buscar sesiones" data-action="history-search">
+          <button class="btn btn-paper btn-small" data-action="trigger-import">Importar respaldo</button>
           <button class="btn btn-ghost btn-small" data-action="export-all">Respaldar todo</button>
         </div>
       </div>
@@ -972,7 +1445,7 @@
       <div class="session-card-actions">
         ${archived?`<button class="btn btn-secondary btn-small" data-action="restore-session" data-id="${s.id}">Restaurar</button>`:`<button class="btn btn-secondary btn-small" data-action="open-session" data-id="${s.id}">Abrir</button>`}
         <details class="session-menu">
-          <summary class="btn btn-ghost btn-small" aria-label="Más opciones">•••</summary>
+          <summary class="btn btn-ghost btn-small" aria-label="Más opciones">${uiIcon('more')}</summary>
           <div class="session-menu-pop">
             ${archived?`<button class="btn btn-danger btn-small" data-action="delete-session" data-id="${s.id}">Eliminar definitivamente</button>`:`
               <button class="btn btn-paper btn-small" data-action="followup-session" data-id="${s.id}">Nueva de seguimiento</button>
@@ -996,21 +1469,20 @@
       <h2>Prepara lo esencial</h2>
       <p class="setup-lead">Completa los datos básicos y ajusta la agenda. El cronómetro comenzará cuando pulses “Comenzar conversación”.</p>
       <section class="meta" aria-label="Datos de la sesión">
-        ${metaInput('Dupla','meta.name','Nombre',session.meta.name)}
+        ${metaInput('Miembro del equipo','meta.name','Nombre',session.meta.name)}
         ${metaInput('Fecha','meta.date','',session.meta.date,'date')}
         ${metaInput('Líder','meta.leader','Nombre del líder',session.meta.leader)}
         <div class="meta-field"><label for="metaCadence">Cadencia</label><select id="metaCadence" data-path="meta.cadence">${options([['semanal','Semanal'],['quincenal','Quincenal'],['mensual','Mensual'],['trimestral','Trimestral'],['otra','Otra']],session.meta.cadence)}</select></div>
       </section>
-      <div class="field"><label for="setupPurpose">Propósito de esta sesión<span class="sub">¿Qué sería valioso aclarar o acordar?</span></label><textarea id="setupPurpose" data-path="opening.purpose">${esc(session.opening.purpose)}</textarea></div>
       <div class="divider">Agenda · ${totalBudget()} min</div>
       <div class="setup-agenda">${session.agenda.map((s,i)=>`<label class="setup-agenda-row">
         <input type="checkbox" aria-label="Activar ${esc(s.title)}" data-action="agenda-toggle" data-index="${i}" ${s.enabled?'checked':''}>
-        <strong>${s.icon||'📝'} ${esc(s.title)}</strong>
+        <strong>${uiIcon(s.icon)}${esc(s.title)}</strong>
         <input type="number" min="1" max="60" value="${s.min}" aria-label="Minutos para ${esc(s.title)}" data-action="agenda-min" data-index="${i}">
       </label>`).join('')}</div>
       <div class="setup-actions">
         <button class="btn btn-ghost" style="color:var(--slate);border-color:var(--line)" data-action="go-home">Cancelar</button>
-        <button class="btn btn-primary" data-action="begin-session">Comenzar conversación →</button>
+        <button class="btn btn-primary" data-action="begin-session">Comenzar conversación${uiIcon('forward',true)}</button>
       </div>
     </section>`);
     window.scrollTo({top:0,behavior:'auto'});
@@ -1031,30 +1503,44 @@
   }
   function renderSession(){
     if(!session){view='home';renderHome();return;}
+    const openDetails=captureOpenDetails();
     const steps=enabledSteps();
     if(!steps.some(s=>s.id===currentStepId)) currentStepId=steps[0]?.id;
-    const pct=steps.length?Math.round(completedCount()/steps.length*100):0;
-    const meta=`
-      <section class="meta" aria-label="Datos de la sesión">
-        ${metaInput('Dupla','meta.name','Nombre',session.meta.name)}
-        ${metaInput('Fecha','meta.date','',session.meta.date,'date')}
-        ${metaInput('Líder','meta.leader','Nombre del líder',session.meta.leader)}
-        <div class="meta-field"><label for="metaCadence">Cadencia</label><select id="metaCadence" data-path="meta.cadence">${options([['semanal','Semanal'],['quincenal','Quincenal'],['mensual','Mensual'],['trimestral','Trimestral'],['otra','Otra']],session.meta.cadence)}</select></div>
-      </section>
-      <div class="progress-line" role="progressbar" aria-label="Progreso de la sesión" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}"><div class="progress-fill" style="width:${pct}%"></div></div>
+    const pct=sessionProgressPercent();
+    const sessionProgress=`
+      <div id="sessionProgress" class="progress-line" role="progressbar" aria-label="Progreso temporal de la sesión" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}"><div id="sessionProgressFill" class="progress-fill" style="width:${pct}%"></div></div>
       <div class="progress-meta"><span>${completedCount()} de ${steps.length} bloques terminados</span><span>Estimado: ${totalBudget()} min · Tiempo real: <span id="sessionElapsedTop">${fmtSeconds(session.sessionElapsed)}</span></span></div>`;
     const content=agendaOpen?renderAgenda():`
       <div class="workspace">
         ${renderRail()}
-        <section class="stage" id="stage">${renderStage()}</section>
+        <section class="stage" id="stage" data-step-id="${esc(currentStepId||'')}">${renderStage()}</section>
       </div>`;
-    app.innerHTML=shell(meta+content);
+    app.innerHTML=shell(sessionProgress+content);
+    restoreOpenDetails(openDetails);
     updateTimerUI();
     enhanceDictationFields();
     updateDictationControls();
     notifyRender();
   }
-  function notifyRender(){window.dispatchEvent(new CustomEvent('d2a2-render'));}
+  function syncStickyHeader(){
+    stickyHeaderObserver?.disconnect?.();
+    stickyHeaderObserver=null;
+    const header=app.querySelector('.topbar');
+    if(!header)return;
+    const measure=()=>{
+      const height=Math.ceil(Number(header.getBoundingClientRect?.().height)||0);
+      if(height>0)document.documentElement?.style?.setProperty('--sticky-header-height',`${height}px`);
+    };
+    measure();
+    if(typeof window.ResizeObserver==='function'){
+      stickyHeaderObserver=new window.ResizeObserver(measure);
+      stickyHeaderObserver.observe(header);
+    }
+  }
+  function notifyRender(){
+    syncStickyHeader();
+    window.dispatchEvent(new CustomEvent('d2a2-render'));
+  }
   function metaInput(label,path,placeholder,value,type='text'){
     const id=path.replace('.','_');
     return `<div class="meta-field"><label for="${id}">${label}</label><input id="${id}" type="${type}" value="${esc(value)}" placeholder="${esc(placeholder)}" data-path="${path}"></div>`;
@@ -1064,15 +1550,15 @@
       <div class="rail-title"><span>Agenda · ${totalBudget()} min</span><span>${completedCount()}/${enabledSteps().length}</span></div>
       <div class="rail-list">${enabledSteps().map((s,i)=>{
         const status=session.stepStates[s.id]||'not_started';
-        const icon=status==='complete'?'✓':status==='in_progress'?'●':'○';
+        const icon=status==='complete'?'state-done':status==='in_progress'?'state-current':'state-empty';
         return `<button class="track ${s.id===currentStepId?'active':''}" data-action="navigate-step" data-step="${s.id}">
           <span class="track-num">${String(i+1).padStart(2,'0')}</span>
-          <span class="track-main"><span class="track-name">${s.icon} ${esc(s.title)}</span><span class="track-time">${s.min} min · ${status==='complete'?'Completo':status==='in_progress'?'En progreso':status==='pending'?'Pendiente':'No iniciado'}</span></span>
-          <span class="track-state" aria-hidden="true">${icon}</span>
+          <span class="track-main"><span class="track-name">${uiIcon(s.icon)}${esc(s.title)}</span><span class="track-time">${s.min} min · ${status==='complete'?'Completo':status==='in_progress'?'En progreso':status==='pending'?'Pendiente':'No iniciado'}</span></span>
+          <span class="track-state">${uiIcon(icon)}</span>
         </button>`;
       }).join('')}</div>
       <div class="rail-tools">
-        <button class="btn btn-ghost btn-small" data-action="open-agenda">⚙ Configurar agenda</button>
+        <button class="btn btn-ghost btn-small" data-action="open-agenda">${uiIcon('agenda')}Configurar agenda</button>
         <button class="btn btn-ghost btn-small" data-action="export-session-current">Descargar respaldo</button>
       </div>
     </aside>`;
@@ -1080,24 +1566,24 @@
   function renderStage(){
     const step=currentStep();
     if(!step) return `<div class="empty">Activa al menos un bloque en la agenda.</div>`;
-    const content=step.custom?renderCustom(step):({
+    const content=step.custom?renderCustom(step):SPECIAL_STAGE_CONFIG[step.id]?renderSpecializedStage(step):({
       apertura:renderOpening,checkin:renderCheckin,seguimiento:renderFollowup,
       feedbackTuyo:renderFeedbackGiven,feedbackSuyo:renderFeedbackReceived,
       objetivos:renderGoals,cierre:renderClose
     }[step.id]||renderCustom)(step);
     const steps=enabledSteps();
     const index=steps.findIndex(s=>s.id===step.id);
-    const modebar=`<div class="stage-modebar"><button class="btn btn-paper btn-small" data-action="toggle-focus-mode">${focusMode?'▦ Ver estructura completa':'◎ Activar modo conversación'}</button></div>`;
+    const modebar=`<div class="stage-modebar"><button class="btn btn-paper btn-small" data-action="toggle-focus-mode">${uiIcon(focusMode?'structure':'focus')}${focusMode?'Ver estructura completa':'Activar modo conversación'}</button></div>`;
     const body=focusMode
-      ? `${renderFocusPanel(step)}<details class="structured-panel"><summary>Ver preguntas y estructura completa del bloque</summary><div class="structured-panel-body">${content}</div></details>`
+      ? `${renderFocusPanel(step)}<details class="structured-panel" data-details-key="structured"><summary>Ver preguntas y estructura completa del bloque</summary><div class="structured-panel-body">${content}</div></details>`
       : content;
     return timerWidget(step)+modebar+body+renderParking()+`
       <nav class="stage-nav" aria-label="Navegación de la sesión">
-        <button class="btn btn-ghost" data-action="previous-step" ${index<=0?'disabled':''}>← Anterior</button>
+        <button class="btn btn-ghost" data-action="previous-step" ${index<=0?'disabled':''}>${uiIcon('back')}Anterior</button>
         <span class="counter">Bloque ${index+1} de ${steps.length}</span>
         <div class="stage-nav-actions">
           <button class="btn btn-paper" data-action="mark-pending">Dejar pendiente</button>
-          <button class="btn btn-primary" data-action="complete-step">${index===steps.length-1?'Terminar bloque':'Finalizar y seguir →'}</button>
+          <button class="btn btn-primary" data-action="complete-step">${index===steps.length-1?'Terminar bloque':`Finalizar y seguir${uiIcon('forward',true)}`}</button>
         </div>
       </nav>`;
   }
@@ -1111,19 +1597,22 @@
       objetivos:'¿Qué acuerdos concretos, responsables y fechas salen de esta conversación?',
       cierre:'¿Qué entendieron, qué harán y qué no debería perderse al terminar?'
     };
+    const stageConfig=SPECIAL_STAGE_CONFIG[step.id];
+    const prompt=stageConfig?.hint||prompts[step.id]||'Conversen libremente y registren solamente lo esencial.';
     return `<section class="focus-panel">
       <p class="eyebrow" style="color:var(--slate)">Modo conversación</p>
-      <h2 id="stageHeading" tabindex="-1">${step.icon||'📝'} ${esc(step.title)}</h2>
-      <p class="hint">${esc(prompts[step.id]||'Conversen libremente y registren solamente lo esencial.')}</p>
+      <h2 id="stageHeading" tabindex="-1">${uiIcon(step.icon)}${esc(step.title)}</h2>
+      <p class="hint">${esc(prompt)}</p>
+      ${stageConfig?.private?`<div class="note private">${uiIcon('lock')}Este bloque es privado y no aparecerá en el resumen compartible.</div>`:''}
       <div class="field focus-capture"><label for="focusNotes">Notas de este bloque<span class="sub">Puedes escribir o usar el micrófono. La estructura detallada permanece disponible más abajo.</span></label><textarea id="focusNotes" data-path="customNotes.${step.id}" placeholder="Ideas, ejemplos, acuerdos o frases que no quieres perder…">${esc(session.customNotes[step.id]||'')}</textarea></div>
-      <div class="quick-capture">
+      ${stageConfig?.private?'':`<div class="quick-capture">
         <label for="quickCaptureText">Captura rápida</label>
         <div class="quick-capture-row">
           <input id="quickCaptureText" type="text" placeholder="Escribe una idea breve">
           <button class="btn btn-secondary btn-small" data-action="quick-commitment">Crear compromiso</button>
           <button class="btn btn-paper btn-small" data-action="quick-parking">Estacionar tema</button>
         </div>
-      </div>
+      </div>`}
     </section>`;
   }
   function timerWidget(step){
@@ -1135,26 +1624,55 @@
       <div><div class="timer-track"><div id="timerFill" class="timer-fill" style="width:${Math.round(t.remaining/total*100)}%"></div></div>
         <div class="timer-info"><span>Bloque usado: ${fmtSeconds(t.elapsed)}</span><span>Sesión: <span id="sessionElapsed">${fmtSeconds(session.sessionElapsed)}</span></span></div></div>
       <div class="timer-buttons">
-        <button id="timerToggle" class="btn btn-primary btn-small" data-action="timer-toggle">${timerRunning?'⏸ Pausar':'▶ Iniciar'}</button>
-        <button class="btn btn-ghost btn-small" data-action="timer-add">+2 min</button>
-        <button class="btn btn-ghost btn-small" data-action="timer-reset">↺</button>
+        <button id="timerToggle" class="btn btn-primary btn-small" data-action="timer-toggle">${uiIcon(timerRunning?'pause':'play')}${timerRunning?'Pausar':'Iniciar'}</button>
+        <button class="btn btn-ghost btn-small" data-action="timer-add" aria-label="Añadir 2 minutos">${uiIcon('plus')}2 min</button>
+        <button class="btn btn-ghost btn-small" data-action="timer-reset" aria-label="Reiniciar cronómetro">${uiIcon('reset')}</button>
       </div>
     </div>`;
   }
-  function stageHeading(title,hint){
-    return `<div class="stage-title"><div><h2 id="stageHeading" tabindex="-1">${title}</h2><p class="hint">${hint}</p></div></div>`;
+  function stageHeading(icon,title,hint){
+    return `<div class="stage-title"><div><h2 id="stageHeading" tabindex="-1">${uiIcon(icon)}${title}</h2><p class="hint">${hint}</p></div></div>`;
   }
   function renderOpening(){
-    return stageHeading('🎬 Apertura','Alineen el propósito, las reglas de la conversación y el permiso para hablar con franqueza.')+`
+    return stageHeading('opening','Apertura','Alineen el propósito, las reglas de la conversación y el permiso para hablar con franqueza.')+`
       <div class="note">Frase sugerida: <em>“Esta es una conversación de doble vía. Quiero entender tu perspectiva tanto como compartir la mía.”</em></div>
       <div class="field"><label for="purpose">Propósito de esta sesión<span class="sub">¿Qué sería valioso haber aclarado o acordado al terminar?</span></label><textarea id="purpose" data-path="opening.purpose">${esc(session.opening.purpose)}</textarea></div>
       <label class="check-line"><input type="checkbox" data-path="opening.safetyAccepted" ${session.opening.safetyAccepted?'checked':''}> Podemos preguntar, disentir, pedir una pausa y corregir interpretaciones sin represalias.</label>
       <label class="check-line"><input type="checkbox" data-path="opening.permissionAccepted" ${session.opening.permissionAccepted?'checked':''}> Ambas personas aceptan conversar sobre los temas de esta agenda.</label>
       <details class="help"><summary>Guía breve para una conversación abierta</summary><ul><li>No interrumpir ni responder mientras la otra persona explica.</li><li>Distinguir hechos, interpretaciones e intenciones.</li><li>No confundir silencio con acuerdo.</li><li>Los temas que necesiten más tiempo pueden ir al estacionamiento.</li></ul></details>`;
   }
+  function workflowValue(stepId,key){
+    return getPath(session,`workflow.${stepId}.${key}`)??'';
+  }
+  function renderWorkflowField(stepId,field){
+    const path=`workflow.${stepId}.${field.key}`;
+    const value=workflowValue(stepId,field.key);
+    const id=`workflow_${stepId}_${field.key}`;
+    const required=field.required?'<span class="sub">Esencial para cerrar este flujo.</span>':'';
+    const style=field.wide?' style="grid-column:1/-1"':'';
+    let control;
+    if(field.type==='select'){
+      control=`<select id="${id}" data-path="${path}">${options(field.options||[],value)}</select>`;
+    }else if(field.type==='date'){
+      control=`<input id="${id}" type="date" data-path="${path}" value="${esc(value)}">`;
+    }else if(field.type==='text'){
+      control=`<input id="${id}" type="text" data-path="${path}" value="${esc(value)}">`;
+    }else{
+      control=`<textarea id="${id}" data-path="${path}">${esc(value)}</textarea>`;
+    }
+    return `<div class="field"${style}><label for="${id}">${esc(field.label)}${required}</label>${control}</div>`;
+  }
+  function renderSpecializedStage(step){
+    const config=SPECIAL_STAGE_CONFIG[step.id];
+    if(!config)return renderCustom(step);
+    return stageHeading(step.icon,esc(step.title),esc(config.hint))+`
+      ${config.note?`<div class="note${config.private?' private':''}">${config.private?uiIcon('lock'):''}${esc(config.note)}</div>`:''}
+      <div class="grid-2 workflow-fields">${config.fields.map(field=>renderWorkflowField(step.id,field)).join('')}</div>
+      ${config.includeActions?`<div class="divider">Compromisos que salen de este bloque</div>${renderActions()}`:''}`;
+  }
   function renderCheckin(){
-    return stageHeading('🌡️ Check-in general','Nombren el estado actual antes de entrar en el feedback. Se pueden elegir hasta tres sentimientos.')+`
-      <div class="field"><span class="field-label">¿Cómo llega a la conversación?</span>${renderChoices(MOODS,'checkin.moods',true)}</div>
+    return stageHeading('checkin','Check-in general','Nombren el estado actual antes de entrar en el feedback. Se pueden elegir hasta tres sentimientos.')+`
+      <div class="field"><span class="field-label">¿Cómo llega a la conversación?</span>${renderChoices(MOODS,'checkin.moods')}</div>
       <div class="field"><label for="customFeeling">Tarjeta en blanco: otro sentimiento</label><input id="customFeeling" type="text" data-path="checkin.customFeeling" value="${esc(session.checkin.customFeeling||'')}" placeholder="Nombra una emoción o sensación que no esté en la lista"></div>
       <div class="field"><label for="moodDetail">¿Qué está influyendo en ese estado?</label><textarea id="moodDetail" data-path="checkin.detail">${esc(session.checkin.detail)}</textarea></div>
       <div class="grid-2">
@@ -1174,9 +1692,9 @@
         </div>
       </details>`;
   }
-  function renderChoices(items,path,showEmoji=false){
+  function renderChoices(items,path){
     const selected=getPath(session,path)||[];
-    return `<div class="cards">${items.map(item=>`<button type="button" class="choice ${selected.includes(item.v)?'selected':''}" data-action="toggle-choice" data-path="${path}" data-value="${esc(item.v)}" aria-pressed="${selected.includes(item.v)}">${showEmoji?`<span class="choice-emoji">${item.e}</span>`:''}<span>${esc(item.l)}</span></button>`).join('')}</div>`;
+    return `<div class="cards">${items.map(item=>`<button type="button" class="choice ${selected.includes(item.v)?'selected':''}" data-action="toggle-choice" data-path="${path}" data-value="${esc(item.v)}" aria-pressed="${selected.includes(item.v)}"><span>${esc(item.l)}</span></button>`).join('')}</div>`;
   }
   function renderActionCards(){
     const selected=session.checkin.actionCards||[];
@@ -1185,13 +1703,13 @@
       return `<button type="button" class="action-choice ${isSelected?'selected':''}" data-action="toggle-choice" data-path="checkin.actionCards" data-value="${esc(card.value)}" aria-label="${esc(`${card.value}: ${card.message}`)}" aria-pressed="${isSelected}">
         <span class="action-choice-label">${esc(card.value)}</span>
         <span class="action-choice-message">${esc(card.message)}</span>
-        <span class="action-choice-check" aria-hidden="true">✓</span>
+        <span class="action-choice-check" aria-hidden="true">${uiIcon('state-done')}</span>
       </button>`;
     }).join('')}</div>`;
   }
   function renderFollowup(){
     const items=session.followup.items||[];
-    return stageHeading('🧩 Seguimiento de la sesión anterior','Revisen primero lo que ya habían acordado. Un compromiso bloqueado no es un fracaso: es información para decidir.')+`
+    return stageHeading('followup','Seguimiento de la sesión anterior','Revisen primero lo que ya habían acordado. Un compromiso bloqueado no es un fracaso: es información para decidir.')+`
       ${items.length?items.map((a,i)=>`<article class="item-card">
         <div class="item-head"><div style="display:flex;gap:9px;align-items:center"><span class="item-number">${i+1}</span><h3>${esc(a.description||'Compromiso anterior')}</h3></div><span class="badge badge-open">${esc(a.owner||'Sin responsable')}</span></div>
         <div class="grid-2">
@@ -1204,10 +1722,10 @@
   }
   function renderFeedbackGiven(){
     const items=session.feedbackGiven.items;
-    return stageHeading('🎯 Feedback a la dupla','Usa Situación → Comportamiento → Impacto → Perspectiva → Próximo paso. Puedes registrar varios temas.')+`
+    return stageHeading('feedback-out','Feedback al miembro del equipo','Usa Situación → Comportamiento → Impacto → Perspectiva → Próximo paso. Puedes registrar varios temas.')+`
       <div class="note">Describe comportamientos y resultados observables. Evita etiquetas de personalidad o asumir intenciones.</div>
       ${items.map((item,i)=>feedbackGivenCard(item,i)).join('')}
-      <button class="btn btn-secondary" data-action="add-feedback-given">+ Añadir otro tema</button>
+      <button class="btn btn-secondary" data-action="add-feedback-given">${uiIcon('plus')}Añadir otro tema</button>
       <details class="help"><summary>Ver ejemplos de formulación</summary><div class="example">
         <div class="example-bad"><strong>Evita</strong><br>“Eres desorganizado y poco colaborativo.”</div>
         <div class="example-good"><strong>Mejor</strong><br>“En la entrega del martes faltaron los enlaces acordados. Cuenta tuvo que reconstruir el contexto y la presentación se retrasó.”</div>
@@ -1222,13 +1740,13 @@
         <div class="field"><label>1. Situación<span class="sub">¿Cuándo y dónde ocurrió?</span></label><textarea data-path="feedbackGiven.items.${i}.situation" data-quality-index="${i}">${esc(item.situation)}</textarea></div>
         <div class="field"><label>2. Comportamiento<span class="sub">¿Qué hizo o dijo concretamente?</span></label><textarea data-path="feedbackGiven.items.${i}.behavior" data-quality-index="${i}">${esc(item.behavior)}</textarea></div>
         <div class="field"><label>3. Impacto<span class="sub">¿Qué efecto produjo en personas, trabajo o resultados?</span></label><textarea data-path="feedbackGiven.items.${i}.impact" data-quality-index="${i}">${esc(item.impact)}</textarea></div>
-        <div class="field"><label>4. Perspectiva de la dupla<span class="sub">¿Cómo lo vio y qué intentaba conseguir?</span></label><textarea data-path="feedbackGiven.items.${i}.perspective" data-quality-index="${i}">${esc(item.perspective)}</textarea></div>
+        <div class="field"><label>4. Perspectiva del miembro del equipo<span class="sub">¿Cómo lo vio y qué intentaba conseguir?</span></label><textarea data-path="feedbackGiven.items.${i}.perspective" data-quality-index="${i}">${esc(item.perspective)}</textarea></div>
       </div>
       <div class="field"><label>5. Próximo paso<span class="sub">¿Qué conviene mantener, cambiar o probar?</span></label><textarea data-path="feedbackGiven.items.${i}.nextStep" data-quality-index="${i}">${esc(item.nextStep)}</textarea></div>
       <div class="quality" id="quality-${i}">
         <div class="quality-top"><span>Calidad de formulación</span><span>${q.score}%</span></div>
         <div class="quality-bar"><div class="quality-fill" style="width:${q.score}%"></div></div>
-        <div class="quality-list">${q.labels.map(x=>`<span class="${x.ok?'quality-ok':''}">${x.ok?'✓':'○'} ${x.label}</span>`).join('')}</div>
+        <div class="quality-list">${q.labels.map(x=>`<span class="${x.ok?'quality-ok':''}">${uiIcon(x.ok?'state-done':'state-empty')}${x.label}</span>`).join('')}</div>
       </div>
       <div class="field"><span class="field-label">Confirmación de comprensión</span>${renderUnderstanding(`feedbackGiven.items.${i}.understanding`,item.understanding)}</div>
       <div class="field"><label>Notas adicionales</label><textarea data-path="feedbackGiven.items.${i}.notes">${esc(item.notes)}</textarea></div>
@@ -1248,11 +1766,11 @@
     return `<div class="understanding">${UNDERSTANDING.map(([v,l])=>`<label class="check-line"><input type="radio" name="${path}" value="${v}" data-path="${path}" ${value===v?'checked':''}> ${l}</label>`).join('')}</div>`;
   }
   function itemsRemoveButton(action,index,length){
-    return length>1?`<button class="btn btn-danger btn-small" data-action="${action}" data-index="${index}">Eliminar</button>`:'';
+    return length>1?`<button class="btn btn-danger btn-small" data-action="${action}" data-index="${index}">${uiIcon('remove')}Eliminar</button>`:'';
   }
   function renderFeedbackReceived(){
     const items=session.feedbackReceived.items;
-    return stageHeading('🔁 Feedback hacia ti','Cambia de rol: escucha, pregunta para comprender y registra por separado lo que aceptas, lo que dudas y lo que accionarás.')+`
+    return stageHeading('feedback-in','Feedback hacia ti','Cambia de rol: escucha, pregunta para comprender y registra por separado lo que aceptas, lo que dudas y lo que accionarás.')+`
       <div class="note private"><strong>Preparación para recibir:</strong> no interrumpas, no expliques inmediatamente, agradece la franqueza y pide ejemplos antes de responder.</div>
       <label class="check-line"><input type="checkbox" data-path="feedbackReceived.ready" ${session.feedbackReceived.ready?'checked':''}> Estoy listo para escuchar y puedo pedir una pausa si la conversación lo necesita.</label>
       <div class="divider">Áreas sobre las que solicitas feedback</div>
@@ -1260,7 +1778,7 @@
       <div class="field" style="margin-top:10px"><label for="customArea">Otra área</label><input id="customArea" type="text" data-path="feedbackReceived.customArea" value="${esc(session.feedbackReceived.customArea)}"></div>
       <div class="divider">Lo que recibiste</div>
       ${items.map((item,i)=>feedbackReceivedCard(item,i)).join('')}
-      <button class="btn btn-secondary" data-action="add-feedback-received">+ Añadir otro feedback recibido</button>`;
+      <button class="btn btn-secondary" data-action="add-feedback-received">${uiIcon('plus')}Añadir otro feedback recibido</button>`;
   }
   function renderAreaChoices(){
     const selected=session.feedbackReceived.areas||[];
@@ -1272,7 +1790,7 @@
       <div class="grid-2">
         <div class="field"><label>Lo que escuché</label><textarea data-path="feedbackReceived.items.${i}.heard">${esc(item.heard)}</textarea></div>
         <div class="field"><label>Ejemplo mencionado</label><textarea data-path="feedbackReceived.items.${i}.example">${esc(item.example)}</textarea></div>
-        <div class="field"><label>Impacto en la dupla</label><textarea data-path="feedbackReceived.items.${i}.impact">${esc(item.impact)}</textarea></div>
+        <div class="field"><label>Impacto en el miembro del equipo</label><textarea data-path="feedbackReceived.items.${i}.impact">${esc(item.impact)}</textarea></div>
         <div class="field"><label>Preguntas para aclarar</label><textarea data-path="feedbackReceived.items.${i}.questions">${esc(item.questions)}</textarea></div>
         <div class="field"><label>Lo que voy a considerar</label><textarea data-path="feedbackReceived.items.${i}.consideration">${esc(item.consideration)}</textarea></div>
         <div class="field"><label>Acción que me comprometo a realizar</label><textarea data-path="feedbackReceived.items.${i}.action">${esc(item.action)}</textarea></div>
@@ -1282,7 +1800,7 @@
     </article>`;
   }
   function renderGoals(){
-    return stageHeading('🧭 Objetivos y compromisos','Conviertan la conversación en resultados observables, apoyo concreto y fechas de seguimiento.')+`
+    return stageHeading('goals','Objetivos y compromisos','Conviertan la conversación en resultados observables, apoyo concreto y fechas de seguimiento.')+`
       <div class="divider">Objetivos de desarrollo</div>
       ${session.goals.items.map((g,i)=>`<article class="item-card">
         <div class="item-head"><div style="display:flex;gap:9px;align-items:center"><span class="item-number">${i+1}</span><h3>Objetivo</h3></div>${itemsRemoveButton('remove-goal',i,session.goals.items.length)}</div>
@@ -1294,35 +1812,35 @@
           <div class="field"><label>Estado</label><select data-path="goals.items.${i}.status">${options([['activo','Activo'],['pausado','Pausado'],['logrado','Logrado']],g.status)}</select></div>
         </div>
       </article>`).join('')}
-      <button class="btn btn-secondary" data-action="add-goal">+ Añadir objetivo</button>
+      <button class="btn btn-secondary" data-action="add-goal">${uiIcon('plus')}Añadir objetivo</button>
       <div class="divider">Compromisos de esta sesión</div>
       ${renderActions()}`;
   }
   function renderActions(){
     return `<div class="action-table">${session.actions.map((a,i)=>`<div class="action-row">
       <div><span class="mini-label">Acción concreta</span><input type="text" data-path="actions.${i}.description" value="${esc(a.description)}" placeholder="Qué se hará"></div>
-      <div><span class="mini-label">Responsable</span><select data-path="actions.${i}.owner">${options([['colaborador','Dupla'],['lider','Líder'],['ambos','Ambos']],a.owner)}</select></div>
+      <div><span class="mini-label">Responsable</span><select data-path="actions.${i}.owner">${options([['colaborador','Miembro del equipo'],['lider','Líder'],['ambos','Ambos']],a.owner)}</select></div>
       <div><span class="mini-label">Fecha</span><input type="date" data-path="actions.${i}.dueDate" value="${esc(a.dueDate)}"></div>
       <div><span class="mini-label">Estado</span><select data-path="actions.${i}.status">${options([['pendiente','Pendiente'],['en_progreso','En progreso'],['bloqueado','Bloqueado'],['cumplido','Cumplido']],a.status)}</select></div>
-      <button class="btn btn-danger btn-icon" aria-label="Eliminar compromiso" data-action="remove-action" data-index="${i}" ${session.actions.length===1?'disabled':''}>×</button>
+      <button class="btn btn-danger btn-icon" aria-label="Eliminar compromiso" data-action="remove-action" data-index="${i}" ${session.actions.length===1?'disabled':''}>${uiIcon('remove')}</button>
       <div style="grid-column:1/-1"><span class="mini-label">Cómo se verá el éxito</span><input type="text" data-path="actions.${i}.success" value="${esc(a.success)}" placeholder="Resultado observable"></div>
-    </div>`).join('')}</div><button class="btn btn-paper" style="margin-top:9px" data-action="add-action">+ Añadir compromiso</button>`;
+    </div>`).join('')}</div><button class="btn btn-paper" style="margin-top:9px" data-action="add-action">${uiIcon('plus')}Añadir compromiso</button>`;
   }
   function renderClose(){
     const checks=closingChecklist();
     const missingChecks=checks.filter(c=>!c.ok),completedChecks=checks.filter(c=>c.ok);
     const startMood=session.checkin.moods?.[0];
     const endMood=session.close.closingMoods?.[0];
-    return stageHeading('🎊 Cierre y resumen','Confirmen qué entendieron, qué harán y cuándo volverán a revisarlo.')+`
+    return stageHeading('close','Cierre y resumen','Confirmen qué entendieron, qué harán y cuándo volverán a revisarlo.')+`
       ${renderParkingAlert()}
       <div class="field"><label for="closeSummary">Resumen compartido<span class="sub">Puedes generarlo a partir de los campos y editarlo antes de exportar.</span></label><textarea id="closeSummary" style="min-height:120px" data-path="close.summary">${esc(session.close.summary)}</textarea>
         <button class="btn btn-paper btn-small" style="margin-top:7px" data-action="generate-summary">Generar resumen</button></div>
-      <div class="divider">Cierre de la dupla</div>
-      <div class="field"><span class="field-label">¿Cómo se va de la conversación?</span>${renderChoices(MOODS,'close.closingMoods',true)}</div>
+      <div class="divider">Cierre del miembro del equipo</div>
+      <div class="field"><span class="field-label">¿Cómo se va de la conversación?</span>${renderChoices(MOODS,'close.closingMoods')}</div>
       <div class="mood-compare">
-        <div><span class="mood-big">${moodInfo(startMood)?.e||'—'}</span><span class="mood-label">Inicio · ${moodInfo(startMood)?.l||'Sin registrar'}</span></div>
-        <strong>→</strong>
-        <div><span class="mood-big">${moodInfo(endMood)?.e||'—'}</span><span class="mood-label">Cierre · ${moodInfo(endMood)?.l||'Sin registrar'}</span></div>
+        <div><span class="mood-big">${moodInfo(startMood)?.l||'—'}</span><span class="mood-label">Estado al inicio</span></div>
+        <strong aria-hidden="true">${uiIcon('forward')}</strong>
+        <div><span class="mood-big">${moodInfo(endMood)?.l||'—'}</span><span class="mood-label">Estado al cierre</span></div>
       </div>
       <div class="field" style="margin-top:14px"><label for="moodReason">¿Qué hizo que el estado cambiara o se mantuviera?</label><textarea id="moodReason" data-path="close.moodReason">${esc(session.close.moodReason)}</textarea></div>
       <div class="metric-grid">
@@ -1330,8 +1848,8 @@
         ${metric('Claridad de acuerdos','close.clarity',session.close.clarity)}
         ${metric('Utilidad de la sesión','close.usefulness',session.close.usefulness)}
       </div>
-      <details class="private-section">
-        <summary>🔒 Reflexión privada del líder</summary>
+      <details class="private-section" data-details-key="private">
+        <summary>${uiIcon('lock')}Reflexión privada del líder</summary>
         <div class="note private">Este contenido nunca aparecerá en el resumen compartible.</div>
         <div class="grid-2">
           <div class="field"><label>¿Qué aprendiste?</label><textarea data-path="close.leaderLearning">${esc(session.close.leaderLearning)}</textarea></div>
@@ -1346,11 +1864,11 @@
         <div class="field"><label>Tema prioritario</label><input type="text" data-path="close.nextPriority" value="${esc(session.close.nextPriority)}"></div>
       </div>
       <div class="divider">Checklist de cierre</div>
-      <div class="checklist">${missingChecks.length?missingChecks.map(c=>`<div class="check-item missing"><span>○</span>${c.label}</div>`).join(''):`<div class="check-item ok"><span>✓</span>Todo lo esencial está listo para cerrar.</div>`}</div>
-      ${completedChecks.length?`<details class="help"><summary>Ver ${completedChecks.length} punto${completedChecks.length===1?'':'s'} completado${completedChecks.length===1?'':'s'}</summary><div class="checklist" style="margin-top:9px">${completedChecks.map(c=>`<div class="check-item ok"><span>✓</span>${c.label}</div>`).join('')}</div></details>`:''}
+      <div class="checklist">${missingChecks.length?missingChecks.map(c=>`<div class="check-item missing">${uiIcon('state-empty')}${c.label}</div>`).join(''):`<div class="check-item ok">${uiIcon('state-done')}Todo lo esencial está listo para cerrar.</div>`}</div>
+      ${completedChecks.length?`<details class="help"><summary>Ver ${completedChecks.length} punto${completedChecks.length===1?'':'s'} completado${completedChecks.length===1?'':'s'}</summary><div class="checklist" style="margin-top:9px">${completedChecks.map(c=>`<div class="check-item ok">${uiIcon('state-done')}${c.label}</div>`).join('')}</div></details>`:''}
       <div class="divider">Descarga</div>
       <button class="btn btn-secondary" data-action="download-pdf-shared">Descargar resumen compartible</button>
-      <details class="download-menu">
+      <details class="download-menu" data-details-key="download">
         <summary class="btn btn-paper">Más opciones de descarga</summary>
         <div class="download-options">
           <button class="btn btn-paper" data-action="download-pdf-private">PDF de notas privadas</button>
@@ -1367,7 +1885,7 @@
     const count=pending.length;
     return `<aside class="parking-alert" role="alert" aria-label="Temas pendientes en el estacionamiento">
       <div class="parking-alert-head">
-        <span class="parking-alert-icon" aria-hidden="true">⚠️</span>
+        <span class="parking-alert-icon" aria-hidden="true">${uiIcon('alert')}</span>
         <div>
           <h3>${count===1?'Hay un tema en el estacionamiento':`Hay ${count} temas en el estacionamiento`}</h3>
           <p>Decidan si lo conversan ahora o si lo posponen. Si necesitan ampliar la conversación, pueden usar el botón +2 min del cronómetro.</p>
@@ -1376,7 +1894,7 @@
       <div class="parking-decisions">${pending.map(item=>`
         <div class="parking-decision">
           <div class="parking-decision-text">
-            ${esc(item.text)} <span class="parking-alert-destination">→ ${esc(parkingLabel(item.destination))}</span>
+            ${esc(item.text)} <span class="parking-alert-destination">${uiIcon('forward')}${esc(parkingLabel(item.destination))}</span>
             ${item.status!=='open'?`<br><span class="parking-status">${esc(parkingStatusLabel(item.status))}</span>`:''}
           </div>
           <div class="parking-decision-actions">
@@ -1395,11 +1913,49 @@
     return `<div class="metric"><label>${label}</label><select data-path="${path}">${options([['','Seleccionar…'],['1','1 · Muy bajo'],['2','2'],['3','3 · Medio'],['4','4'],['5','5 · Muy alto']],value)}</select></div>`;
   }
   function moodInfo(value){ return MOODS.find(m=>m.v===value); }
+  function workflowFieldDisplay(field,value){
+    if(value==null||value==='')return '';
+    if(field.type==='select')return field.options?.find(([key])=>String(key)===String(value))?.[1]||String(value);
+    if(field.type==='date')return dateLabel(value);
+    return String(value);
+  }
+  function workflowSections({includePrivate=false,privateOnly=false}={}){
+    return enabledSteps().map(step=>{
+      const config=SPECIAL_STAGE_CONFIG[step.id];
+      if(!config)return null;
+      if(privateOnly&&!config.private)return null;
+      if(!privateOnly&&!includePrivate&&config.private)return null;
+      const items=config.fields.map(field=>({
+        label:field.label,
+        text:workflowFieldDisplay(field,workflowValue(step.id,field.key))
+      })).filter(item=>item.text);
+      return items.length?{id:step.id,title:step.title,items}:null;
+    }).filter(Boolean);
+  }
   function closingChecklist(){
     const actions=session.actions.filter(a=>a.description);
+    const specializedSteps=enabledSteps().filter(step=>SPECIAL_STAGE_CONFIG[step.id]);
+    if(specializedSteps.length){
+      const workflowChecks=specializedSteps.map(step=>{
+        const config=SPECIAL_STAGE_CONFIG[step.id];
+        const required=config.fields.filter(field=>field.required);
+        return {
+          label:`${step.title}: se registró la información esencial.`,
+          ok:required.every(field=>String(workflowValue(step.id,field.key)).trim())
+        };
+      });
+      return [
+        ...workflowChecks,
+        {label:'Los compromisos tienen responsable, fecha y resultado esperado.',ok:actions.length>0&&actions.every(a=>a.owner&&a.dueDate&&a.success)},
+        {label:'Se registró el estado de cierre.',ok:session.close.closingMoods.length>0},
+        {label:'Se definió la próxima fecha.',ok:!!session.close.nextDate},
+        {label:'Cada tema del estacionamiento tiene una decisión.',ok:session.parking.every(item=>item.status!=='open')},
+        {label:'Las notas privadas están separadas del resumen compartido.',ok:true}
+      ];
+    }
     return [
       {label:'Se revisaron los compromisos anteriores o no había compromisos previos.',ok:!session.followup.items.length||session.followup.items.every(a=>a.status)},
-      {label:'Se registró feedback para la dupla.',ok:session.feedbackGiven.items.some(i=>i.situation&&i.behavior&&i.impact)},
+      {label:'Se registró feedback para el miembro del equipo.',ok:session.feedbackGiven.items.some(i=>i.situation&&i.behavior&&i.impact)},
       {label:'Se registró feedback hacia el líder.',ok:session.feedbackReceived.items.some(i=>i.heard)},
       {label:'Los compromisos tienen responsable, fecha y resultado esperado.',ok:actions.length>0&&actions.every(a=>a.owner&&a.dueDate&&a.success)},
       {label:'Se registró el estado de cierre.',ok:session.close.closingMoods.length>0},
@@ -1409,8 +1965,8 @@
     ];
   }
   function renderParking(){
-    return `<details class="parking">
-      <summary>🅿 Estacionamiento de temas (${session.parking.length})</summary>
+    return `<details class="parking" data-details-key="parking">
+      <summary>${uiIcon('parking')}Estacionamiento de temas (${session.parking.length})</summary>
       <div class="parking-form">
         <input id="parkingText" type="text" placeholder="Tema que no debemos perder">
         <select id="parkingDestination"><option value="final">Final de esta sesión</option><option value="next">Próxima sesión</option><option value="separate">Conversación aparte</option><option value="other">Seguimiento con otra persona</option></select>
@@ -1422,7 +1978,7 @@
   function parkingLabel(v){return ({final:'Final de esta sesión',next:'Próxima sesión',separate:'Conversación aparte',other:'Seguimiento con otra persona'})[v]||v;}
   function parkingStatusLabel(v){return ({now:'Hablar ahora',postponed:'Pospuesto',resolved:'Tratado'})[v]||v;}
   function renderCustom(step){
-    return stageHeading(`${step.icon||'📝'} ${esc(step.title)}`,'Tema personalizado de esta conversación.')+`
+    return stageHeading(step.icon,esc(step.title),'Tema personalizado de esta conversación.')+`
       <div class="field"><label for="customNote">Notas y acuerdos del tema</label><textarea id="customNote" style="min-height:220px" data-path="customNotes.${step.id}">${esc(session.customNotes[step.id]||'')}</textarea></div>`;
   }
   function options(items,value){
@@ -1431,15 +1987,15 @@
 
   function renderAgenda(){
     return `<section class="stage agenda">
-      <h2>⚙ Configurar agenda</h2>
+      <h2>${uiIcon('agenda')}Configurar agenda</h2>
       <p class="hint">Activa, desactiva, reordena o cambia la duración. El estimado se recalcula automáticamente.</p>
       <div class="agenda-total">Total actual: ${totalBudget()} minutos</div>
       <div class="agenda-list">${session.agenda.map((s,i)=>`<div class="agenda-row">
         <input type="checkbox" aria-label="Activar ${esc(s.title)}" data-action="agenda-toggle" data-index="${i}" ${s.enabled?'checked':''}>
-        <strong>${s.icon||'📝'} ${esc(s.title)}</strong>
+        <strong>${uiIcon(s.icon)}${esc(s.title)}</strong>
         <input type="number" min="1" max="60" value="${s.min}" aria-label="Minutos para ${esc(s.title)}" data-action="agenda-min" data-index="${i}">
-        <button class="btn btn-paper btn-icon" data-action="agenda-up" data-index="${i}" aria-label="Subir bloque" ${i===0?'disabled':''}>↑</button>
-        <button class="btn btn-paper btn-icon" data-action="agenda-down" data-index="${i}" aria-label="Bajar bloque" ${i===session.agenda.length-1?'disabled':''}>↓</button>
+        <button class="btn btn-paper btn-icon" data-action="agenda-up" data-index="${i}" aria-label="Subir bloque" ${i===0?'disabled':''}>${uiIcon('up')}</button>
+        <button class="btn btn-paper btn-icon" data-action="agenda-down" data-index="${i}" aria-label="Bajar bloque" ${i===session.agenda.length-1?'disabled':''}>${uiIcon('down')}</button>
       </div>`).join('')}</div>
       <div class="agenda-add">
         <input id="customStepTitle" type="text" placeholder="Nuevo tema personalizado">
@@ -1493,15 +2049,20 @@
     const toggle=document.getElementById('timerToggle');
     const elapsed=document.getElementById('sessionElapsed');
     const elapsedTop=document.getElementById('sessionElapsedTop');
+    const sessionProgress=document.getElementById('sessionProgress');
+    const sessionProgressFill=document.getElementById('sessionProgressFill');
     if(clock){
       clock.textContent=fmtSeconds(t.remaining);
       clock.classList.toggle('warning',t.remaining>0&&t.remaining<=step.min*60*.2);
       clock.classList.toggle('done',t.remaining===0);
     }
     if(fill) fill.style.width=Math.max(0,Math.round(t.remaining/Math.max(1,step.min*60)*100))+'%';
-    if(toggle) toggle.textContent=timerRunning?'⏸ Pausar':'▶ Iniciar';
+    if(toggle) toggle.innerHTML=`${uiIcon(timerRunning?'pause':'play')}${timerRunning?'Pausar':'Iniciar'}`;
     if(elapsed) elapsed.textContent=fmtSeconds(session.sessionElapsed);
     if(elapsedTop) elapsedTop.textContent=fmtSeconds(session.sessionElapsed);
+    const progressPct=sessionProgressPercent();
+    if(sessionProgressFill)sessionProgressFill.style.width=progressPct+'%';
+    sessionProgress?.setAttribute?.('aria-valuenow',String(progressPct));
   }
   function navigate(stepId){
     pauseTimers();
@@ -1530,8 +2091,22 @@
 
   function generateSummary(){
     const lines=[];
-    const conversationNotes=enabledSteps().map(step=>({step,text:String(session.customNotes?.[step.id]||'').trim()})).filter(item=>item.text);
+    const conversationNotes=enabledSteps().filter(step=>!SPECIAL_STAGE_CONFIG[step.id]?.private).map(step=>({step,text:String(session.customNotes?.[step.id]||'').trim()})).filter(item=>item.text);
     if(conversationNotes.length)lines.push(`Notas principales: ${conversationNotes.map(item=>`${item.step.title}: ${item.text}`).join(' | ')}`);
+    const specializedSections=workflowSections();
+    if(specializedSections.length){
+      lines.push(`Tipo de conversación: ${(TEMPLATE_INFO[session.template]||TEMPLATE_INFO.regular).title}.`);
+      if(session.opening.purpose)lines.push(`Propósito: ${session.opening.purpose}`);
+      specializedSections.forEach(section=>{
+        lines.push(`${section.title}: ${section.items.map(item=>`${item.label}: ${item.text}`).join(' | ')}`);
+      });
+      const specializedActions=session.actions.filter(a=>a.description).map(a=>`${a.description} — Responsable: ${ownerLabel(a.owner)}${a.dueDate?`, fecha: ${dateLabel(a.dueDate)}`:''}.`);
+      if(specializedActions.length)lines.push(`Compromisos: ${specializedActions.join(' ')}`);
+      if(session.close.nextDate)lines.push(`Próxima sesión: ${dateLabel(session.close.nextDate)}${session.close.nextPriority?`. Tema prioritario: ${session.close.nextPriority}`:''}.`);
+      session.close.summary=lines.join('\n\n');
+      markDirty();renderSession();toast('Resumen adaptado al tipo de conversación. Revísalo antes de compartir.');
+      return;
+    }
     if(session.checkin.moods.length||session.checkin.customFeeling) lines.push(`Estado inicial: ${[...session.checkin.moods.map(v=>moodInfo(v)?.l||v),session.checkin.customFeeling].filter(Boolean).join(', ')}.`);
     const recognitions=session.feedbackGiven.items.filter(i=>i.type==='reconocer'&&i.behavior).map(i=>`${i.behavior}${i.impact?` Impacto: ${i.impact}`:''}`);
     const adjustments=session.feedbackGiven.items.filter(i=>i.type!=='reconocer'&&i.behavior).map(i=>`${i.behavior}${i.nextStep?` Próximo paso: ${i.nextStep}`:''}`);
@@ -1559,7 +2134,7 @@
     }
     markDirty();renderSession();
   }
-  function ownerLabel(v){return ({lider:'Líder',colaborador:'Dupla',ambos:'Ambos'})[v]||v;}
+  function ownerLabel(v){return ({lider:'Líder',colaborador:'Miembro del equipo',ambos:'Ambos'})[v]||v;}
   function pdfSafe(value){
     return String(value==null||value===''?'—':value)
       .replace(/[\u2013\u2014]/g,'-')
@@ -1569,18 +2144,48 @@
       .replace(/[^\u000A\u000D\u0020-\u007E\u00A0-\u00FF]/g,'');
   }
   function sharedPdfContent(){
+    const templateTitle=(TEMPLATE_INFO[session.template]||TEMPLATE_INFO.regular).title;
     const content=[
       {type:'title',text:'Resumen de sesión 1:1'},
-      {type:'meta',text:`Dupla: ${session.meta.name||'—'}  ·  Líder: ${session.meta.leader||'—'}  ·  Fecha: ${dateLabel(session.meta.date)}`},
+      {type:'meta',text:`Tipo: ${templateTitle}  ·  Miembro del equipo: ${session.meta.name||'—'}  ·  Líder: ${session.meta.leader||'—'}  ·  Fecha: ${dateLabel(session.meta.date)}`},
       {type:'section',text:'Resumen compartido'},
-      {type:'body',text:session.close.summary||'—'},
+      {type:'body',text:session.close.summary||'—'}
+    ];
+    const specializedSections=workflowSections();
+    if(specializedSections.length){
+      specializedSections.forEach(section=>{
+        content.push({type:'section',text:section.title});
+        section.items.forEach(item=>content.push({type:'label',label:item.label,text:item.text}));
+      });
+      content.push({type:'section',text:'Compromisos'});
+      const specializedActions=session.actions.filter(a=>a.description);
+      if(!specializedActions.length)content.push({type:'body',text:'—'});
+      specializedActions.forEach((action,index)=>{
+        content.push(
+          {type:'subsection',text:`Compromiso ${index+1}`},
+          {type:'body',text:action.description},
+          {type:'label',label:'Responsable',text:ownerLabel(action.owner)},
+          {type:'label',label:'Fecha',text:dateLabel(action.dueDate)},
+          {type:'label',label:'Resultado esperado',text:action.success||'—'},
+          {type:'label',label:'Estado',text:action.status||'—'}
+        );
+      });
+      content.push(
+        {type:'section',text:'Próxima sesión'},
+        {type:'label',label:'Fecha',text:dateLabel(session.close.nextDate)},
+        {type:'label',label:'Cadencia',text:session.close.cadence||'—'},
+        {type:'label',label:'Tema prioritario',text:session.close.nextPriority||'—'}
+      );
+      return content;
+    }
+    content.push(
       {type:'section',text:'Check-in'},
       {type:'label',label:'Estado',text:[...session.checkin.moods.map(v=>moodInfo(v)?.l||v),session.checkin.customFeeling].filter(Boolean).join(', ')||'—'},
       {type:'label',label:'Lo que da energía',text:session.checkin.enjoy||'—'},
       {type:'label',label:'Fricciones',text:session.checkin.friction||'—'},
       {type:'label',label:'Carga de trabajo',text:session.checkin.workload||'—'},
-      {type:'section',text:'Feedback a la dupla'}
-    ];
+      {type:'section',text:'Feedback al miembro del equipo'}
+    );
     const given=session.feedbackGiven.items.filter(i=>i.situation||i.behavior||i.impact);
     if(!given.length) content.push({type:'body',text:'—'});
     given.forEach((item,index)=>{
@@ -1648,15 +2253,22 @@
       {type:'section',text:'Acción del líder'},
       {type:'body',text:session.close.leaderAction||'—'},
       {type:'section',text:'Notas privadas post-reunión'},
-      {type:'body',text:session.close.privateNotes||'—'},
-      {type:'section',text:'Temas en estacionamiento'}
+      {type:'body',text:session.close.privateNotes||'—'}
     );
+    const privateWorkflow=workflowSections({privateOnly:true});
+    privateWorkflow.forEach(section=>{
+      content.push({type:'section',text:section.title});
+      section.items.forEach(item=>content.push({type:'label',label:item.label,text:item.text}));
+      const notes=String(session.customNotes?.[section.id]||'').trim();
+      if(notes)content.push({type:'label',label:'Notas del bloque',text:notes});
+    });
+    content.push({type:'section',text:'Temas en estacionamiento'});
     if(session.parking.length){
       session.parking.forEach((item,index)=>content.push({type:'body',text:`${index+1}. ${item.text} - ${parkingLabel(item.destination)}`}));
     }else content.push({type:'body',text:'—'});
     return content;
   }
-  const PDF_ICON_PNG='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';
+  const PDF_ICON_ACCENT_PNG='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';
   async function downloadPdf(scope){
     if(scope==='full'&&!confirm('El PDF completo incluye las notas privadas del líder. ¿Quieres descargarlo?')) return;
     if(!window.PDFLib){
@@ -1670,9 +2282,9 @@
       const pdf=await PDFDocument.create();
       const regular=await pdf.embedFont(StandardFonts.Helvetica);
       const bold=await pdf.embedFont(StandardFonts.HelveticaBold);
-      const logo=await pdf.embedPng(PDF_ICON_PNG);
+      const logo=await pdf.embedPng(PDF_ICON_ACCENT_PNG);
       const pageSize=[595.28,841.89],margin=48,contentWidth=pageSize[0]-margin*2,bottom=45;
-      const ink=rgb(11/255,19/255,43/255),slate=rgb(58/255,80/255,107/255),teal=rgb(91/255,192/255,190/255),muted=rgb(102/255,120/255,140/255);
+      const ink=rgb(13/255,20/255,17/255),slate=rgb(52/255,58/255,52/255),teal=rgb(217/255,237/255,146/255),muted=rgb(98/255,103/255,95/255);
       let page,y;
       const addPage=()=>{
         page=pdf.addPage(pageSize);
@@ -1895,6 +2507,8 @@
       const container=field.closest('.field');
       if(!container||container.querySelector(`[data-voice-path="${field.dataset.path}"]`))return;
       container.classList.add('voice-field');
+      const shell=document.createElement('div');
+      shell.className='voice-input-shell';
       const button=document.createElement('button');
       button.type='button';
       button.className='voice-field-button';
@@ -1902,8 +2516,9 @@
       button.dataset.voicePath=field.dataset.path;
       button.setAttribute('aria-label','Dictar texto en este campo');
       button.title='Dictar texto';
-      button.textContent='🎙';
-      container.appendChild(button);
+      button.innerHTML=uiIcon('mic');
+      field.before(shell);
+      shell.append(field,button);
     });
   }
   function updateDictationControls(){
@@ -2181,7 +2796,7 @@
     else if(action==='open-session'){const s=sessions.find(x=>x.id===button.dataset.id);if(s)openSession(s);}
     else if(action==='followup-session'){const prev=sessions.find(x=>x.id===button.dataset.id);if(prev){prepareSession(createSession('regular',prev));markDirty();}}
     else if(action==='begin-session'){
-      if(!String(session.meta.name||'').trim()){toast('Escribe el nombre de la dupla antes de comenzar.');document.getElementById('meta_name')?.focus();return;}
+      if(!String(session.meta.name||'').trim()){toast('Escribe el nombre del miembro del equipo antes de comenzar.');document.getElementById('meta_name')?.focus();return;}
       session.startedAt=new Date().toISOString();view='session';currentStepId=enabledSteps()[0]?.id||null;
       if(currentStepId)session.stepStates[currentStepId]='in_progress';saveNow();renderSession();focusCurrentHeading();startTimers();
     }
@@ -2194,7 +2809,7 @@
     else if(action==='delete-session'){const s=sessions.find(x=>x.id===button.dataset.id);if(s&&confirm(`¿Eliminar definitivamente la sesión de ${s.meta?.name||'esta persona'}? Esta acción no se puede deshacer.`)){sessions=sessions.filter(x=>x.id!==s.id);localStorage.setItem(STORAGE_KEY,JSON.stringify(sessions));window.D2A2Cloud?.deleteSession?.(s.id);renderHome();}}
     else if(action==='export-session'){const s=sessions.find(x=>x.id===button.dataset.id);if(s)exportSession(s);}
     else if(action==='export-session-current'){saveNow();exportSession(session);}
-    else if(action==='export-all') downloadJSON({schemaVersion:4,exportedAt:new Date().toISOString(),sessions},`D2A2_respaldo_${today()}.json`);
+    else if(action==='export-all') downloadJSON({schemaVersion:5,exportedAt:new Date().toISOString(),sessions},`D2A2_respaldo_${today()}.json`);
     else if(action==='trigger-import') importFile.click();
     else if(action==='go-home'){saveNow();view='home';renderHome();}
     else if(action==='navigate-step') navigate(button.dataset.step);
@@ -2279,7 +2894,7 @@
     const q=feedbackQuality(session.feedbackGiven.items[i]);
     el.querySelector('.quality-top span:last-child').textContent=q.score+'%';
     el.querySelector('.quality-fill').style.width=q.score+'%';
-    el.querySelector('.quality-list').innerHTML=q.labels.map(x=>`<span class="${x.ok?'quality-ok':''}">${x.ok?'✓':'○'} ${x.label}</span>`).join('');
+    el.querySelector('.quality-list').innerHTML=q.labels.map(x=>`<span class="${x.ok?'quality-ok':''}">${uiIcon(x.ok?'state-done':'state-empty')}${x.label}</span>`).join('');
   }
   function toggleChoice(path,value){
     const list=[...(getPath(session,path)||[])],index=list.indexOf(value);
@@ -2324,7 +2939,7 @@
     const min=Math.max(1,Math.min(60,Number(document.getElementById('customStepMinutes')?.value)||5));
     if(!title){toast('Escribe el nombre del nuevo tema.');return;}
     const id=uid('custom');
-    session.agenda.push({id,title,icon:'📝',min,enabled:true,custom:true});
+    session.agenda.push({id,title,icon:'note',min,enabled:true,custom:true});
     session.stepStates[id]='not_started';session.timers[id]={remaining:min*60,elapsed:0,warned:false};session.customNotes[id]='';
     markDirty();renderSession();
   }
@@ -2355,6 +2970,16 @@
     if(dirty||isDictating()||summaryReview){e.preventDefault();e.returnValue='';}
   });
   window.addEventListener('pagehide',()=>{if(isDictating())stopDictation(false);});
+  document.addEventListener('click',event=>{
+    const target=event.target;
+    const menu=target.closest?.('details.session-menu,details.account-menu');
+    if(!menu){closeContextMenus();return;}
+    if(target.closest?.('summary')){closeContextMenus(menu);return;}
+    if(target.closest?.('button,a')){menu.open=false;closeContextMenus();}
+  });
+  document.addEventListener('keydown',event=>{
+    if(event.key==='Escape')closeContextMenus();
+  });
   document.addEventListener('visibilitychange',()=>{if(document.hidden&&session)saveNow();});
 
   window.D2A2App={

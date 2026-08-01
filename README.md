@@ -69,7 +69,7 @@ npm test
 npm run build
 ```
 
-Para revisar únicamente la interfaz sin una cuenta, el acceso local ofrece **Continuar en modo local**. Esa opción no aparece en el sitio publicado.
+El paquete final exige una cuenta autenticada. Para probar el flujo completo durante el desarrollo, utiliza un entorno local de Netlify conectado al proyecto; abrir `index.html` directamente no sustituye la autenticación ni las funciones privadas del despliegue.
 
 ## Privacidad y límites
 
